@@ -25,6 +25,9 @@ namespace Hotbar.Manager
             //Player Init
             Player.Instance.CreatePlayer();
 
+            //Camera Init
+            CameraManager.Instance.Init();
+
             //Subway Init
             await SubwayManager.Instance.Start();
         }

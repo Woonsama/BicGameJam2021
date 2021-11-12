@@ -7,7 +7,7 @@ namespace Hotbar.Container
 {
     public class Player : SingletonMonoBase<Player>
     {
-        GameObject player;
+        public GameObject player;
         public GameObject playerPrefab;
         public void CreatePlayer()
         {
@@ -18,19 +18,5 @@ namespace Hotbar.Container
         {
             Destroy(player);
         }
-
-        /*Debug 용
-        void Update()
-        {
-            if(Input.GetKeyDown(KeyCode.Z))
-            {
-                CreatePlayer();
-            }
-            if(Input.GetKeyDown(KeyCode.X))
-            {
-                RemovePlayer();
-            }
-        }
-        */
     }
 }

@@ -1,3 +1,4 @@
+using Hotbar.Container;
 using Hotbar.Pattern;
 using Hotbar.UI;
 using Hotbar.UI.View;
@@ -16,7 +17,12 @@ namespace Hotbar.Manager
             var routeMapView = await UIManager.Instance.OpenView(UIManager.ViewType.RouteMap);
             await (routeMapView as UIRouteMapView).StartAnimation();
 
-            //게임 시작
+            //NPC 세팅
+            NPCContainer.Instance.CreateNPC(30);
+
+            //Player 세팅
+
+            //Subway 프레임워크 시작
         }
     }
 }

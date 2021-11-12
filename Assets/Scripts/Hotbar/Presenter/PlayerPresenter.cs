@@ -17,7 +17,7 @@ namespace Hotbar.Presenter
             Move();
 
             //Force
-            //if (Input.GetMouseButtonDown(0)) Instantiate(forcePrefab, transform);
+            if (Input.GetMouseButtonDown(0)) Instantiate(forcePrefab, transform);
         }
 
         public void Move()

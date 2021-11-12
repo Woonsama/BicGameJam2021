@@ -39,6 +39,10 @@ public class Force1 : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         "Trigger".Log();
-        other.gameObject.GetComponent<Rigidbody>().AddForce(direction * power, ForceMode.Impulse);
+        if(other.tag == "NPC")
+        {
+            other.gameObject.GetComponent<Rigidbody>().AddForce(direction * power, ForceMode.Impulse);
+        }
+        
     }
 }

@@ -43,7 +43,7 @@ namespace Hotbar.Presenter
 
         private IEnumerator Move()
         {
-            transform.DoMove
+            //transform.DoMove
             yield return null;
         }
 

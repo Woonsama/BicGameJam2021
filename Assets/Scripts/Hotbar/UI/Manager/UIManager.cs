@@ -13,10 +13,8 @@ namespace Hotbar.UI
 
         public enum ViewType
         {
-            ClearResult,
-            FailResult,
-            Roulette,
-            InGameSetting,
+            RouteMap,
+            Screen,
         }
 
         public async Task<UIViewBase> OpenView(ViewType viewType)

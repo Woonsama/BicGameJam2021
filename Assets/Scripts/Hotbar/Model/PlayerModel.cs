@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
+using Hotbar.Container;
 
 namespace Hotbar.Model
 {
@@ -34,16 +35,25 @@ namespace Hotbar.Model
 
                 transform.position += direction.normalized * speed; //항상 일정한 속도 유지
 
-
                 await UniTask.NextFrame(); //다음프레임까지 기다린다.
             }
 
         }
 
+
         void Start()
         {
             _ = Move(); //따로돌리고 싶으면 그냥, 기다리고 싶으면 await
             //_ = void형 반환
+        }
+
+        private void Update()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                "GetMouseButtonDown1".Log();
+                Player.Instance.CreateForce();
+            }
         }
 
 

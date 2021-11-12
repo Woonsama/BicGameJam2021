@@ -1,5 +1,6 @@
 using Hotbar.Pattern;
 using Hotbar.UI;
+using Hotbar.UI.View;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -11,8 +12,11 @@ namespace Hotbar.Manager
     {
         public async void Awake()
         {
-            //전광판 Open
+            //노선도
             var routeMapView = await UIManager.Instance.OpenView(UIManager.ViewType.RouteMap);
+            await (routeMapView as UIRouteMapView).StartAnimation();
+
+            //게임 시작
         }
     }
 }

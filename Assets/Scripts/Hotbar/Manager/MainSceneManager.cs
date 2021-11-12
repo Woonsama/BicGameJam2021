@@ -13,16 +13,17 @@ namespace Hotbar.Manager
     {
         public async void Awake()
         {
-            //³ë¼±µµ
+            //ë…¸ì„ ë„
             var routeMapView = await UIManager.Instance.OpenView(UIManager.ViewType.RouteMap);
             await (routeMapView as UIRouteMapView).StartAnimation();
 
-            //NPC ¼¼ÆÃ
+            //NPC ì„¸íŒ…
             NPCContainer.Instance.CreateNPC(30);
 
-            //Player ¼¼ÆÃ
+            //Player ì„¸íŒ…
+            Player.Instance.CreatePlayer();
 
-            //Subway ÇÁ·¹ÀÓ¿öÅ© ½ÃÀÛ
+            //Subway í”„ë ˆì„ì›Œí¬ ì‹œì‘
         }
     }
 }

@@ -13,17 +13,21 @@ namespace Hotbar.Manager
     {
         public async void Awake()
         {
-            //노선도
+            SubwayManager.Instance.InitStation();
+
+            //Show Route Map
             var routeMapView = await UIManager.Instance.OpenView(UIManager.ViewType.RouteMap);
             await (routeMapView as UIRouteMapView).StartAnimation();
 
-            //NPC 세팅
-            NPCContainer.Instance.CreateNPC(30);
+            //NPC Init
+            NPCContainer.Instance.Init();
 
-            //Player 세팅
+            //Player Init
             Player.Instance.CreatePlayer();
 
-            //Subway 프레임워크 시작
+            //Subway Init
+            await SubwayManager.Instance.Start();
         }
     }
 }
+

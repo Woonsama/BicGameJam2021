@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
+using Hotbar.Container;
 
 namespace Hotbar.Presenter
 {
     public class NPCPresenter : MonoBehaviour
     {
+
         public enum NpcState
         {
             Stop,
@@ -24,46 +26,20 @@ namespace Hotbar.Presenter
         [Header("NPC ID")]
         public int ID;
 
-        [Header("NPC State")]
-        public NpcState npcState = NpcState.Stop;
-
-        [Header("NPC Type")]
-        public NPCType npcType = NPCType.Stop;
-        
-
-        public IEnumerator StartFSM(bool isFlow)
+        public async Task Behaviours()
         {
-            _ = StateChange();
-            StartCoroutine(npcState.ToString());
+            var target = Player.Instance.player;
 
-            yield return null;
-        }
-
-        #region FSM
-
-        private IEnumerator Move()
-        {
-            //transform.DoMove
-            yield return null;
-        }
-
-        private IEnumerator Stop()
-        {
-            yield return null;
-        }
-
-        #endregion
-
-        public async Task StateChange()
-        {
-            while(true)
+            if(target != null)
             {
-                var stateChangeDelay = Random.Range(2.0f, 5.0f);
-                await Task.Delay((int)(stateChangeDelay * 1000));
-                await UniTask.NextFrame();
-            }
+                while(true)
+                {
+                    transform.LookAt(target.transform);
+                    transform.position = Vector3.Lerp(transform.position, target.transform.position, 3.0f);
+                    await UniTask.NextFrame();
+                }
+            }           
         }
     }
 }
-
 

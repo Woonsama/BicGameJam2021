@@ -23,7 +23,7 @@ namespace Hotbar.Manager
             NPCContainer.Instance.Init();
 
             //Player Init
-            Player.Instance.CreatePlayer();
+            PlayerContainer.Instance.Init();
 
             //Camera Init
             CameraManager.Instance.Init();

@@ -28,14 +28,14 @@ namespace Hotbar.Presenter
 
         public async Task Behaviours()
         {
-            var target = Player.Instance.player;
+            var target = PlayerContainer.Instance.target;
 
             if(target != null)
             {
                 while(true)
                 {
-                    transform.LookAt(target.transform);
-                    transform.position = Vector3.Lerp(transform.position, target.transform.position, 3.0f);
+                    //transform.LookAt(target.transform);
+                    //transform.position = Vector3.Lerp(transform.position, target.transform.position, 3.0f);
                     await UniTask.NextFrame();
                 }
             }           

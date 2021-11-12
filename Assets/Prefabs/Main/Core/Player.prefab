@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1337834566248303008}
   - component: {fileID: 597671921130982725}
   - component: {fileID: 194426333704393031}
-  - component: {fileID: 4119887194528375574}
   - component: {fileID: 3468781080586098914}
+  - component: {fileID: 2350068318868114010}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424454883741952424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1906574, y: -25.212692, z: 31.963615}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,19 +97,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4119887194528375574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 424454883741952424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e68537fd3a44ab94a947d476cdcc3bbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.1
 --- !u!54 &3468781080586098914
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,3 +113,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2350068318868114010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424454883741952424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf67839f7f0a5a246bca545b3dfeb988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forcePrefab: {fileID: 8979203347732481132, guid: fc086f4ebb6c10b4da4326449065f71c, type: 3}
+  speed: 0.1

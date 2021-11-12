@@ -22,7 +22,7 @@ namespace Hotbar.Manager
         {
             if(isFollowStart)
             {
-                mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, Player.Instance.player.transform.position + lerpPosition, lerpSmooth);
+                mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, PlayerContainer.Instance.target.transform.position + lerpPosition, lerpSmooth);
             }
         }
 

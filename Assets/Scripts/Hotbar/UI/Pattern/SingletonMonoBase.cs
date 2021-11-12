@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Tang3.Common.Management
+namespace Hotbar.Pattern
 {
     public class SingletonMonoBase<T> : MonoBehaviour where T : Component
     {

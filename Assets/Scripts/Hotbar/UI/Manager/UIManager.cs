@@ -1,8 +1,8 @@
+using Hotbar.Pattern;
 using Hotbar.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Tang3.Common.Management;
 using UnityEngine;
 
 namespace Hotbar.UI

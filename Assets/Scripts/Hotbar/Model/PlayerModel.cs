@@ -14,39 +14,39 @@ namespace Hotbar.Model
         public async Task Move()
         {
             //await Task.Delay(1);
-            //ë£¨í”„ê°€ ì´ˆë‹¹ ëª‡í”„ë ˆì„ì¸ì§€ ì•ˆì •í•´ì ¸ìˆìŒ
-            //ë‚˜ì¤‘ì— ì–¼ë§ˆë‚˜ ê¸°ë‹¤ë¦´ì§€ë¥¼ ì •í•´ì¤˜ì•¼í•¨
-            while(true)
+            //·çÇÁ°¡ ÃÊ´ç ¸îÇÁ·¹ÀÓÀÎÁö ¾ÈÁ¤ÇØÁ®ÀÖÀ½
+            //³ªÁß¿¡ ¾ó¸¶³ª ±â´Ù¸±Áö¸¦ Á¤ÇØÁà¾ßÇÔ
+            while (true)
             {
-                if(Input.GetKey(KeyCode.W))
+                if (Input.GetKey(KeyCode.W))
                     direction.z = 1;
-                else if(Input.GetKey(KeyCode.S))
+                else if (Input.GetKey(KeyCode.S))
                     direction.z = -1;
                 else
                     direction.z = 0;
 
-                if(Input.GetKey(KeyCode.A))
+                if (Input.GetKey(KeyCode.A))
                     direction.x = -1;
-                else if(Input.GetKey(KeyCode.D))
+                else if (Input.GetKey(KeyCode.D))
                     direction.x = 1;
                 else
                     direction.x = 0;
 
-                transform.position += direction.normalized * speed; //í•­ìƒ ì¼ì •í•œ ì†ë„ ìœ ì§€
+                transform.position += direction.normalized * speed; //Ç×»ó ÀÏÁ¤ÇÑ ¼Óµµ À¯Áö
 
 
-                await UniTask.NextFrame(); //ë‹¤ìŒí”„ë ˆì„ê¹Œì§€ ê¸°ë‹¤ë¦°ë‹¤.
+                await UniTask.NextFrame(); //´ÙÀ½ÇÁ·¹ÀÓ±îÁö ±â´Ù¸°´Ù.
             }
-            
+
         }
 
         void Start()
         {
-            _ = Move(); //ë”°ë¡œëŒë¦¬ê³  ì‹¶ìœ¼ë©´ ê·¸ëƒ¥, ê¸°ë‹¤ë¦¬ê³  ì‹¶ìœ¼ë©´ await
-            //_ = voidí˜• ë°˜í™˜
+            _ = Move(); //µû·Îµ¹¸®°í ½ÍÀ¸¸é ±×³É, ±â´Ù¸®°í ½ÍÀ¸¸é await
+            //_ = voidÇü ¹İÈ¯
         }
 
-        
+
 
     }
 

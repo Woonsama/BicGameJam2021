@@ -11,6 +11,11 @@ namespace Hotbar.Manager
     {
         public async void Awake()
         {
+            //Show Tutorial
+            var tutorialView = await UIManager.Instance.OpenView(UIManager.ViewType.Tutorial);
+            await (tutorialView as UITutorialView).StartTutorial();
+
+            //Set Station Data
             SubwayManager.Instance.InitStation();
 
             //Show Route Map

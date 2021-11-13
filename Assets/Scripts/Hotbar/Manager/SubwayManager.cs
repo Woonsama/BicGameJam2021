@@ -9,16 +9,21 @@ namespace Hotbar.Manager
 {
     public class SubwayManager : SingletonMonoBase<SubwayManager>
     {
+        public Animator subwayLeftDoor;
+        public Animator subwayRightDoor;
+
         public List<string> stationList;
         public int currentStationIndex;
         public int departStationIndex;
+
+        private bool isLeft = false;
 
         public void InitStation()
         {
             currentStationIndex = Random.Range(0, stationList.Count);
         }
 
-        public async Task Start()
+        public async Task Play()
         {
             while (true)
             {
@@ -33,25 +38,47 @@ namespace Hotbar.Manager
         public async Task StartMove()
         {
             "[Subway Start Move]".LogWarning();
-            var moveTime = Random.Range(20, 30);
+            var moveTime = Random.Range(3, 5);
 
             await Task.Delay(moveTime * 1000);
         }
 
         public async Task OpenDoor()
         {
-            //Start Door Animation
+            "[Start Door Animation]".LogWarning();
+
+            isLeft = true;
+
+            //isLeft = Random.Range(0, 2) == 0;
+
+            if (isLeft)
+            {
+                subwayLeftDoor.SetBool("isopen", true);
+            }
+            else
+            {
+                subwayRightDoor.SetBool("isopen", true);
+            }
         }
 
         public async Task Wait()
         {
-            await Task.Delay(10000);
+            "[Wait]".LogWarning();
+            await Task.Delay(3000);
         }
 
         public async Task CloseDoor()
         {
-            //Close Door Animation
+            "[Close Door Animation]".LogWarning();
 
+            if (isLeft)
+            {
+                subwayLeftDoor.SetBool("isopen", false);
+            }
+            else
+            {
+                subwayRightDoor.SetBool("isopen", false);
+            }
         }
     }
 }

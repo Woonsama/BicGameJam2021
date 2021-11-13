@@ -29,7 +29,7 @@ namespace Hotbar.Manager
             CameraManager.Instance.Init();
 
             //Subway Init
-            await SubwayManager.Instance.Start();
+            await SubwayManager.Instance.Play();
         }
     }
 }

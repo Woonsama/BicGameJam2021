@@ -36,7 +36,7 @@ namespace Hotbar.Presenter
                 {
                     //transform.LookAt(target.transform);
                     //transform.position = Vector3.Lerp(transform.position, target.transform.position, 3.0f);
-                    await UniTask.NextFrame();
+                    await Task.Yield();
                 }
             }           
         }

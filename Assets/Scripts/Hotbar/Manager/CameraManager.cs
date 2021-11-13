@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
 using Hotbar.Container;
+using Cysharp.Threading.Tasks;
 
 namespace Hotbar.Manager
 {
@@ -24,6 +25,24 @@ namespace Hotbar.Manager
             {
                 mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, PlayerContainer.Instance.target.transform.position + lerpPosition, lerpSmooth);
             }
+
+            if (Input.GetKeyDown(KeyCode.P)) DoShake(.5f, 2.0f, .5f);
+        }
+
+        public async Task DoShake(float range, float smooth, float delay)
+        {
+            var initialPos = mainCamera.transform.position;
+            float time = 0;
+
+            while (time <= delay)
+            {
+                time += Time.deltaTime;
+
+                mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position,  initialPos + new Vector3(Random.Range(-range, range), 0), smooth);
+                await Task.Yield();
+            }
+
+            mainCamera.transform.position = initialPos;
         }
 
         public async Task DoShakePosition(float duration, float strength = 3, int vibrato = 10, float randomness = 90, bool fadeOut = true)

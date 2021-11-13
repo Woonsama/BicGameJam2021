@@ -4,11 +4,19 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using DG.Tweening;
 
 namespace Hotbar.Manager
 {
     public class SubwayManager : SingletonMonoBase<SubwayManager>
     {
+        [Header("Map Info")]
+        public GameObject map;
+        public float shakeDuration;
+        public Vector3 shakeRandomRange;
+
+
+        [Header("Animator")]
         public Animator subwayLeftDoor;
         public Animator subwayRightDoor;
 
@@ -20,36 +28,56 @@ namespace Hotbar.Manager
 
         public void InitStation()
         {
-            currentStationIndex = Random.Range(0, stationList.Count);
+            currentStationIndex = 0;
+            departStationIndex = 2;
+            //currentStationIndex = Random.Range(0, stationList.Count);
         }
 
-        public async Task Play()
+        public void Play()
+        {
+            StartCoroutine(StartSubwayAnimation());
+            StartCoroutine(StartSuywayFramework());
+        }
+
+        #region Private
+
+        private IEnumerator StartSuywayFramework()
         {
             while (true)
             {
-                await StartMove();
-                await OpenDoor();
-                await Wait();
-                await CloseDoor();
-                await UniTask.NextFrame();
+                yield return StartMove();
+                yield return ShowScreen();
+                yield return OpenDoor();
+                yield return Wait();
+                yield return CloseDoor();
+                yield return null;
             }
         }
 
-        public async Task StartMove()
+        private IEnumerator StartMove()
         {
             "[Subway Start Move]".LogWarning();
             var moveTime = Random.Range(3, 5);
 
-            await Task.Delay(moveTime * 1000);
+            yield return new WaitForSeconds(moveTime);
         }
 
-        public async Task OpenDoor()
+        private IEnumerator ShowScreen()
+        {
+            if(currentStationIndex + 1 <= departStationIndex)
+            {
+                var rotText = isLeft == true ? "왼쪽" : "오른쪽";
+                $"다음 역은 {stationList[currentStationIndex + 1]} 입니다. 내리실 문은 {rotText} 입니다.".LogWarning();
+            }
+
+            yield return null;
+        }
+
+        private IEnumerator OpenDoor()
         {
             "[Start Door Animation]".LogWarning();
 
-            isLeft = true;
-
-            //isLeft = Random.Range(0, 2) == 0;
+            isLeft = Random.Range(0, 2) == 0;
 
             if (isLeft)
             {
@@ -59,15 +87,17 @@ namespace Hotbar.Manager
             {
                 subwayRightDoor.SetBool("isopen", true);
             }
+
+            yield return null;
         }
 
-        public async Task Wait()
+        private IEnumerator Wait()
         {
             "[Wait]".LogWarning();
-            await Task.Delay(3000);
+            yield return new WaitForSeconds(3);
         }
 
-        public async Task CloseDoor()
+        private IEnumerator CloseDoor()
         {
             "[Close Door Animation]".LogWarning();
 
@@ -79,7 +109,42 @@ namespace Hotbar.Manager
             {
                 subwayRightDoor.SetBool("isopen", false);
             }
+
+            currentStationIndex++;
+
+            yield return null;
         }
+
+        private IEnumerator StartSubwayAnimation()
+        {
+            while(true)
+            {
+                yield return ShakeMap(shakeDuration, shakeRandomRange);
+                yield return new WaitForSeconds(.5f);
+            }
+        }
+
+        private IEnumerator ShakeMap(float duration, Vector3 randomness)
+        {
+            float t = 0;
+            //var mapInitialPosition = map.transform.position;
+            var mapInitialRoatation = map.transform.rotation;
+
+            while (t <= duration)
+            {
+                t += Time.deltaTime;
+
+                //map.transform.position = Vector3.Lerp(map.transform.position, map.transform.position + new Vector3(Random.Range(-randomness.x, randomness.x), Random.Range(-randomness.y, randomness.y), Random.Range(-randomness.z, randomness.z)), 1.0f);
+                map.transform.rotation = Quaternion.Euler(Vector3.Lerp(map.transform.rotation.eulerAngles, map.transform.rotation.eulerAngles + new Vector3(Random.Range(-randomness.x, randomness.x), Random.Range(-randomness.y, randomness.y), Random.Range(-randomness.z, randomness.z)), 1.0f));
+                yield return null;
+            }
+
+
+            //map.transform.position = mapInitialPosition;
+            map.transform.rotation = mapInitialRoatation;
+        }
+
+        #endregion
     }
 }
 

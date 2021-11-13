@@ -52,8 +52,8 @@ namespace Hotbar.Container
             GameObject standard = new GameObject();
             
             float unitNum_x;
-            float unitNum_z;
-            int checkingNum_x;
+            float unitNum_z = 1.5f;
+            
 
             if(isLeft)
             {
@@ -72,17 +72,7 @@ namespace Hotbar.Container
 
             for (int i =0; i<num; i++)
             {
-                if (i % 2 == 0)
-                {
-                    unitNum_z = 1.5f;
-                    checkingNum_x = i/2;
-                }
-                else
-                {
-                    unitNum_z = -1.5f;
-                }
-                checkingNum_x = i / 2;
-                Debug.Log(checkingNum_x);
+                
 
                 cur.transform.position = new Vector3(i * unitNum_x, 0f, unitNum_z) + standard.transform.position;
                 

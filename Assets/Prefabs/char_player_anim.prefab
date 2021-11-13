@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 6723712768467188376}
   source: {fileID: -8628420052971817955}
-  forceClip: {fileID: 8300000, guid: e23d159d36b701042b8ffcd151e0f0dd, type: 3}
+  forceClip: {fileID: 8300000, guid: 88ee6221539778d4b9039786902fa1dd, type: 3}
   forcePrefab: {fileID: 8979203347732481132, guid: fc086f4ebb6c10b4da4326449065f71c, type: 3}
   dirObj: {fileID: 0}
   speed: 5

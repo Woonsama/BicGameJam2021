@@ -157,9 +157,11 @@ namespace Hotbar.Manager
 
         private IEnumerator StartSubwayAnimation()
         {
+            var punch = new Vector3(Random.Range(-shakeRandomRange.x, shakeRandomRange.x), Random.Range(-shakeRandomRange.y, shakeRandomRange.y), Random.Range(-shakeRandomRange.z, shakeRandomRange.z));
+
             while(true)
             {
-                map.transform.DOPunchRotation(shakeRandomRange, 1, 1).SetLoops(2, LoopType.Yoyo);
+                map.transform.DOPunchRotation(punch, 1, 1).SetLoops(2, LoopType.Yoyo);
                 yield return new WaitForSeconds(1.0f);
             }
         }

@@ -20,7 +20,7 @@ namespace Hotbar.Manager
 
             //Show Route Map
             var routeMapView = await UIManager.Instance.OpenView(UIManager.ViewType.RouteMap);
-            await (routeMapView as UIRouteMapView).StartAnimation();
+            //await (routeMapView as UIRouteMapView).StartAnimation();
 
             //NPC Init
             NPCContainer.Instance.Init();

@@ -23,7 +23,7 @@ namespace Hotbar.Manager
         public Animator subwayLeftDoor;
         public Animator subwayRightDoor;
 
-        public List<UniTuple<string, AudioClip, bool>> stationList = new List<UniTuple<string, AudioClip, bool>>();
+        public List<UniTuple<string, string, AudioClip, bool>> stationList = new List<UniTuple<string, string, AudioClip, bool>>();
         public int currentStationIndex;
         public int departStationIndex;
 
@@ -80,7 +80,7 @@ namespace Hotbar.Manager
                 var rotText = isLeft == true ? "왼쪽" : "오른쪽";
                 $"다음 역은 {stationList[currentStationIndex + 1].Item1} 입니다. 내리실 문은 {rotText} 입니다.".LogWarning();
 
-                var length = SoundManager.Instance.PlaySE(stationList[currentStationIndex + 1].Item2);
+                var length = SoundManager.Instance.PlaySE(stationList[currentStationIndex + 1].Item3);
                 NPCContainer.Instance.npcList.Clear();
                 NPCContainer.Instance.SelectRandomNPC();
                 List<NPCPresenter> list = NPCContainer.Instance.npcList;
@@ -105,7 +105,7 @@ namespace Hotbar.Manager
         {
             "[Start Door Animation]".LogWarning();
 
-            isLeft = stationList[currentStationIndex].Item3;
+            isLeft = stationList[currentStationIndex].Item4;
             isClose = false;
 
             //LED

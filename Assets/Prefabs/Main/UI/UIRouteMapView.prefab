@@ -1778,9 +1778,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4eb128537c4e74dac18a41fdd31630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundImage: {fileID: 0}
-  routeMapImage: {fileID: 0}
-  delayTime: 3000
+  currentStationKorText: {fileID: 728432297}
+  currentStationEnText: {fileID: 6830398580610761232}
+  departStationKorText: {fileID: 2107650158}
+  departStationEnText: {fileID: 3960089773514852024}
 --- !u!1 &4220483728320631239
 GameObject:
   m_ObjectHideFlags: 0

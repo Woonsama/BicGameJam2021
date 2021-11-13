@@ -11,37 +11,22 @@ namespace Hotbar.UI.View
 {
     public class UIRouteMapView : UIViewBase
     {
-        [Header("Background Image")]
-        public Image backgroundImage;
+        public Text currentStationKorText;
+        public Text currentStationEnText;
 
-        [Header("Route Map Image")]
-        public Image routeMapImage;
-
-        [Header("Delay Time [Milliseconds]")]
-        public int delayTime;
+        public Text departStationKorText;
+        public Text departStationEnText;
 
         public async override Task InitView()
         {
+            currentStationKorText.text = SubwayManager.Instance.stationList[SubwayManager.Instance.currentStationIndex].Item1;
+            currentStationEnText.text = SubwayManager.Instance.stationList[SubwayManager.Instance.currentStationIndex].Item2;
+
+            departStationKorText.text = SubwayManager.Instance.stationList[SubwayManager.Instance.departStationIndex].Item1;
+            departStationEnText.text = SubwayManager.Instance.stationList[SubwayManager.Instance.departStationIndex].Item2;
+
             $"현재 역은 {SubwayManager.Instance.stationList[SubwayManager.Instance.currentStationIndex].Item1} 입니다".LogWarning();
             $"목표 역은 {SubwayManager.Instance.stationList[SubwayManager.Instance.departStationIndex].Item1} 입니다".LogWarning();
-        }
-
-        public async Task StartAnimation()
-        {
-            var tasks = new List<Task>();
-            tasks.Add(backgroundImage.DOFade(.5f, 1.0f).AsyncWaitForCompletion());
-            tasks.Add(routeMapImage.DOFade(1.0f, 1.0f).AsyncWaitForCompletion());
-            await Task.WhenAll(tasks);
-            tasks.Clear();
-
-            await Task.Delay(delayTime);
-
-            tasks.Add(backgroundImage.DOFade(0, 1.0f).AsyncWaitForCompletion());
-            tasks.Add(routeMapImage.DOFade(0, 1.0f).AsyncWaitForCompletion());
-            await Task.WhenAll(tasks);
-            tasks.Clear();
-
-            Close();
         }
     }
 }

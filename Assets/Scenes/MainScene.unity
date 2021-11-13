@@ -1267,6 +1267,158 @@ PrefabInstance:
       propertyPath: subwayRightDoor
       value: 
       objectReference: {fileID: 853982544}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[0].value2
+      value: Guro Digital Complex
+      objectReference: {fileID: 0}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[0].value3
+      value: 
+      objectReference: {fileID: 8300000, guid: 9afc6b21c84cb85499344cc073380870, type: 3}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[1].value2
+      value: Shindaebang
+      objectReference: {fileID: 0}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[1].value3
+      value: 
+      objectReference: {fileID: 8300000, guid: e6fb8d13d893bdc41a5b06417a69098e, type: 3}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[2].value2
+      value: Sillim
+      objectReference: {fileID: 0}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[2].value3
+      value: 
+      objectReference: {fileID: 8300000, guid: 7d562ef658b980041ab432b7db628295, type: 3}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[2].value4
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[3].value2
+      value: Bongcheon
+      objectReference: {fileID: 0}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[3].value3
+      value: 
+      objectReference: {fileID: 8300000, guid: bc4677c9dbb51a24abd23dbf31815308, type: 3}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[3].value4
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[4].value2
+      value: Seoul National University entrance
+      objectReference: {fileID: 0}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[4].value3
+      value: 
+      objectReference: {fileID: 8300000, guid: 8f90c55d1c492344f9d631c83b0f3eeb, type: 3}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[4].value4
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[5].value2
+      value: Nakseongdae
+      objectReference: {fileID: 0}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[5].value3
+      value: 
+      objectReference: {fileID: 8300000, guid: 695a10da409236542a96598d19d7af79, type: 3}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[6].value2
+      value: Sadang
+      objectReference: {fileID: 0}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[6].value3
+      value: 
+      objectReference: {fileID: 8300000, guid: dc0e8309d9369cf4baa30dba7d14d8f2, type: 3}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[7].value2
+      value: Bangbae
+      objectReference: {fileID: 0}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[7].value3
+      value: 
+      objectReference: {fileID: 8300000, guid: c5b5455744cfc98479d8e2121fdd296c, type: 3}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[8].value2
+      value: Seocho
+      objectReference: {fileID: 0}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[8].value3
+      value: 
+      objectReference: {fileID: 8300000, guid: 166b1ba6174471f448bec46c66c20c92, type: 3}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[9].value2
+      value: ' Seoul National University'
+      objectReference: {fileID: 0}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[9].value3
+      value: 
+      objectReference: {fileID: 8300000, guid: 58b6bed61790ab7429c648ad69384c68, type: 3}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[10].value2
+      value: Gangnam
+      objectReference: {fileID: 0}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[10].value3
+      value: 
+      objectReference: {fileID: 8300000, guid: 4cef3c469793fa14086f3ad1469c4bf1, type: 3}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[11].value2
+      value: Yeoksam
+      objectReference: {fileID: 0}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[11].value3
+      value: 
+      objectReference: {fileID: 8300000, guid: 361fed63d30d20e40ae7fd3d5395448a, type: 3}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[12].value2
+      value: Seolleung
+      objectReference: {fileID: 0}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[12].value3
+      value: 
+      objectReference: {fileID: 8300000, guid: 6717d8461ff8aa94fb69f906ff38582b, type: 3}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[13].value2
+      value: Samsung
+      objectReference: {fileID: 0}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[13].value3
+      value: 
+      objectReference: {fileID: 8300000, guid: 45ffdbe592dca9144afc1b9b70f6ca44, type: 3}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[13].value4
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[14].value2
+      value: Sports Complex
+      objectReference: {fileID: 0}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[14].value3
+      value: 
+      objectReference: {fileID: 8300000, guid: 66e0ccf777eff4641b00e1213b9afa72, type: 3}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[15].value2
+      value: Sin Chon
+      objectReference: {fileID: 0}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[15].value3
+      value: 
+      objectReference: {fileID: 8300000, guid: f28346d06fac4aa4c9507a7fb60b6391, type: 3}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[16].value2
+      value: Jam-sil
+      objectReference: {fileID: 0}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: stationList.Array.data[16].value3
+      value: 
+      objectReference: {fileID: 8300000, guid: af80b0cbb4e507f4aa4fe13dba386aa9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
 --- !u!1001 &2708232359233349899

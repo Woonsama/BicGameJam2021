@@ -12,28 +12,19 @@ public class Force1 : MonoBehaviour
     public float power = 10000f;
     public float speed = 0.1f;
 
-    public void Shoot(Vector3 dir)
-    {
-        direction = dir;
-
-        Destroy(gameObject, 2f);
-    }
-
     private void Start()
     {
-        direction = new Vector3(0, 0, 1f);
         firstPos = transform.position;
     }
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0, 0, speed);
+        transform.position += transform.forward * speed;
         curPos = transform.position;
         if (Vector3.Distance(firstPos, curPos) > range)
         {
             Destroy(this.gameObject);
         }
-        transform.Translate(direction);
     }
 
     void OnTriggerEnter(Collider other)
@@ -41,8 +32,9 @@ public class Force1 : MonoBehaviour
         "Trigger".Log();
         if(other.tag == "NPC")
         {
-            other.gameObject.GetComponent<Rigidbody>().AddForce(direction * power, ForceMode.Impulse);
+            direction = other.transform.position - transform.position + transform.forward;
+            other.gameObject.GetComponent<Rigidbody>().AddForce(direction*power, ForceMode.Impulse);
+            Destroy(this.gameObject);
         }
-        
     }
 }

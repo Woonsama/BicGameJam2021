@@ -9,6 +9,9 @@ namespace Hotbar.Presenter
     [RequireComponent(typeof(AudioSource))]
     public class NPCTalk : MonoBehaviour
     {
+        public GameObject talkBubble;
+        public Transform talkBubbleGenerateTransform;
+
         public List<AudioClip> clipList;
         private AudioSource source;
 
@@ -26,6 +29,8 @@ namespace Hotbar.Presenter
                 yield return new WaitForSeconds(randSayTime);
                 source.clip = clipList[Random.Range(0, clipList.Count)];
                 source.Play();
+                var obj = Instantiate(talkBubble, talkBubbleGenerateTransform);
+                Destroy(obj, 2.5f);
                 yield return null;
             }
         }

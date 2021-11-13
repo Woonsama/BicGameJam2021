@@ -628,6 +628,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec604fabd394b546b7825f352ee526d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  talkBubble: {fileID: 6083696844162472995, guid: 73183945dfa68f94bba53664c98ca9a4, type: 3}
+  talkBubbleGenerateTransform: {fileID: 7317194191404702916}
   clipList:
   - {fileID: 8300000, guid: 868375117f8b6cf42b262df96cb52075, type: 3}
   - {fileID: 8300000, guid: 6927f6c0d2462af43838b58bca28cd6b, type: 3}

@@ -7,6 +7,7 @@ using UnityEngine;
 using DG.Tweening;
 using Hotbar.Utils;
 using Hotbar.Presenter;
+using Hotbar.Container;
 
 namespace Hotbar.Manager
 {
@@ -95,10 +96,16 @@ namespace Hotbar.Manager
             if (isLeft)
             {
                 subwayLeftDoor.SetBool("isopen", true);
+                NPCContainer.Instance.SetGenerateTransformList(true, 8);
+                NPCContainer.Instance.TransfortNPC(true, 8);
+                "left".Log();
             }
             else
             {
                 subwayRightDoor.SetBool("isopen", true);
+                NPCContainer.Instance.SetGenerateTransformList(false, 8);
+                NPCContainer.Instance.TransfortNPC(false, 8);
+                "right".Log();
             }
 
             yield return null;

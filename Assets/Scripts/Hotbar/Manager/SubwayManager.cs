@@ -80,6 +80,10 @@ namespace Hotbar.Manager
                 var length = SoundManager.Instance.PlaySE(stationList[currentStationIndex + 1].Item2);
                 yield return new WaitForSeconds(length);
             }
+            else
+            {
+                //Open Game Failed Popup
+            }
 
             yield return null;
         }
@@ -88,7 +92,7 @@ namespace Hotbar.Manager
         {
             "[Start Door Animation]".LogWarning();
 
-            isLeft = Random.Range(0, 2) == 0;
+            isLeft = stationList[currentStationIndex].Item3;
 
             //LED
             ledPresenter.ChangeLED(isLeft);
@@ -139,7 +143,6 @@ namespace Hotbar.Manager
         {
             while(true)
             {
-                //yield return ShakeMap(shakeDuration, shakeRandomRange);
                 map.transform.DOPunchRotation(shakeRandomRange, 1, 1).SetLoops(2, LoopType.Yoyo);
                 yield return new WaitForSeconds(1.0f);
             }

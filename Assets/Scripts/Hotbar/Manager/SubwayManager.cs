@@ -18,7 +18,7 @@ namespace Hotbar.Manager
             currentStationIndex = Random.Range(0, stationList.Count);
         }
 
-        public async Task Start()
+        public async Task Play()
         {
             while (true)
             {
@@ -33,25 +33,25 @@ namespace Hotbar.Manager
         public async Task StartMove()
         {
             "[Subway Start Move]".LogWarning();
-            var moveTime = Random.Range(20, 30);
+            var moveTime = Random.Range(3, 5);
 
             await Task.Delay(moveTime * 1000);
         }
 
         public async Task OpenDoor()
         {
-            //Start Door Animation
+            "[Start Door Animation]".LogWarning();
         }
 
         public async Task Wait()
         {
-            await Task.Delay(10000);
+            "[Wait]".LogWarning();
+            await Task.Delay(3000);
         }
 
         public async Task CloseDoor()
         {
-            //Close Door Animation
-
+            "[Close Door Animation]".LogWarning();
         }
     }
 }

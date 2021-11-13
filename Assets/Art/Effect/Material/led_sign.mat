@@ -30,7 +30,7 @@ Material:
     m_Floats:
     - _Emission: 2
     - __dirty: 0
-    - _floatspeed: 2
+    - _floatspeed: 0.5
     m_Colors:
     - _tint: {r: 1, g: 0.6791467, b: 0, a: 0}
   m_BuildTextureStacks: []

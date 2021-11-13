@@ -17,6 +17,8 @@ namespace Hotbar.UI
             Screen,
             Clear,
             Fail,
+
+            Title,
         }
 
         public async Task<UIViewBase> OpenView(ViewType viewType)

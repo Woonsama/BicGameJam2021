@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -6,13 +7,19 @@ using UnityEngine.SceneManagement;
 
 namespace Hotbar.UI.View
 {
-    public class UITitleView : UIViewBase
+    public class UITitleView : MonoBehaviour
     {
-        public async override Task InitView()
-        {
-            
-        }
+        public Animation titleAnim;
 
-        public void StartGame() => SceneManager.LoadScene("MainScene");
+        public async void StartGame()
+        {
+            "[Game Start]".LogError();
+
+            titleAnim.clip = titleAnim.GetClip("title_end");
+            titleAnim.Play();
+
+            await UniTask.WaitUntil(() => titleAnim.isPlaying == false); 
+            SceneManager.LoadScene("MainScene");
+        }
     }
 }

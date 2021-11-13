@@ -13,7 +13,7 @@ namespace Hotbar.Container
         [Header("ReadOnly")]
         public int MaxInCount = 6;
         public int MaxOutCount = 5;
-        public int MaxNpcCount = 0;
+        int MaxNpcCount = 40;
 
         [Header("NPC")]
         public GameObject npc;
@@ -49,8 +49,13 @@ namespace Hotbar.Container
 
         public async void TransfortNPC(bool isLeft, int num)
         {
+            "Transfort".Log();
             if (npcCreateCount + num >= MaxNpcCount)
             {
+                "TransfortNPC if¹®".Log();
+                num.Log();
+                npcCreateCount.Log();
+                MaxNpcCount.Log();
                 num = MaxNpcCount - npcCreateCount;
                 
                 if (num <= 0)
@@ -92,6 +97,20 @@ namespace Hotbar.Container
                 selected = transform.GetChild(randomNum).gameObject;
                 npcList.Add(selected.GetComponent<NPCPresenter>());
            }
+        }
+
+        public void SelectRandomNPC()
+        {
+            "selectRandom".Log();
+            int num = Random.Range(0, MaxOutCount);
+            GameObject selected;
+
+            for (int i = 0; i < num; i++)
+            {
+                int randomNum = Random.Range(0, npcCreateCount);
+                selected = transform.GetChild(randomNum).gameObject;
+                npcList.Add(selected.GetComponent<NPCPresenter>());
+            }
         }
 
         public void RemoveNPC(int id)

@@ -78,16 +78,20 @@ namespace Hotbar.Presenter
 
         public async Task Gather()
         {
+            "Gather".Log();
             Vector3 target_Pos = new Vector3(0f, 0f, 0f);
             float time = 0f;
             int frequency = Random.Range(2, 4);
 
-            while(true)
+            SetMoveSpeed(3f);
+
+            while (true)
             {
                 if(time > frequency)
                 {
+                    "break체크".Log();
                     time = 0f;
-                    if (Vector3.Distance(transform.position, new Vector3(0f, 0f, 0f)) < 2f)
+                    if (Vector3.Distance(transform.position, new Vector3(0f, 0f, 0f)) < 4f)
                         break;
                     else
                         frequency = Random.Range(2, 4);
@@ -95,6 +99,8 @@ namespace Hotbar.Presenter
                 transform.LookAt(target_Pos);
                 transform.position += transform.forward * moveSpeed * Time.deltaTime;
                 time += Time.deltaTime;
+                "이동".Log();
+                await UniTask.NextFrame();
             }
             
         }

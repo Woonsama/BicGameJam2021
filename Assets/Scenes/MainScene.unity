@@ -756,6 +756,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1588626104 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5276922604775787364, guid: ae15befbd3f032e4a855779e702499e0, type: 3}
+  m_PrefabInstance: {fileID: 1823425779}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1588626106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588626104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04611a82ef44db45b04a357a4f20f24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frontLED: {fileID: 2100000, guid: 612ace9a8e562684e92e4d717b43b572, type: 2}
+  behindLED: {fileID: 2100000, guid: 612ace9a8e562684e92e4d717b43b572, type: 2}
+  trueLeft: {fileID: 2800000, guid: 9622a09b309975446a24b6ac939e6eb3, type: 3}
+  trueRight: {fileID: 2800000, guid: bb1a1c822a4f4fe45acded7fb932560a, type: 3}
+  lieLeft: {fileID: 2800000, guid: b9b3a5d9d4943c746a38e6f40a949005, type: 3}
+  lieRight: {fileID: 2800000, guid: 19c9abec228380b49a31da189aef74db, type: 3}
 --- !u!1 &1648584024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,6 +1051,10 @@ PrefabInstance:
       propertyPath: map
       value: 
       objectReference: {fileID: 909581161}
+    - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
+      propertyPath: ledPresenter
+      value: 
+      objectReference: {fileID: 1588626106}
     - target: {fileID: 353446122499834606, guid: 6b20b65c340d7894da7e3bd290d5ad76, type: 3}
       propertyPath: subwayLeftDoor
       value: 

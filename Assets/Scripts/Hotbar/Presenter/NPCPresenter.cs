@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
 using Hotbar.Container;
+using Hotbar.Model;
 
 namespace Hotbar.Presenter
 {
-    public class NPCPresenter : MonoBehaviour
+    public class NPCPresenter : NPCModel
     {
 
         public enum NpcState
@@ -41,27 +42,43 @@ namespace Hotbar.Presenter
             }           
         }
 
-        public async Task Left_Comein()
+        public async Task Comein(bool isLeft)
         {
-            Vector3 target_Pos = new Vector3(5f, 0f, 0f);
+            Vector3 target_Pos;
             Rigidbody rb = GetComponent<Rigidbody>();
+
+            if (isLeft)
+                target_Pos = new Vector3(-4f, 0f, 0f);
+            else
+                target_Pos = new Vector3(4f, 0f, 0f);
+
+            SetMoveSpeed(0.1f);
             float time = 0f;
+
             while(true)
             {
                 time += Time.deltaTime;
                 transform.LookAt(target_Pos);
-                transform.position += transform.forward*0.01f;
-                //transform.position = Vector3.MoveTowards(transform.position, target_Pos, Time.deltaTime*2f);
+                transform.position += transform.forward * moveSpeed;
+
+                if (isLeft)
+                {
+                    if (transform.position.x > -4)
+                        break;
+                }
+                else
+                {
+                    if (transform.position.x < 4)
+                        break;
+                }             
+                
                 await UniTask.NextFrame();
             }
             
             
         }
 
-        public async Task Right_Comein()
-        {
-            Vector3 target_Pos = new Vector3(-5f, 0f, 0f);
-        }
+        
     }
 }
 

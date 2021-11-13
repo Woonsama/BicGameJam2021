@@ -6,9 +6,9 @@ namespace Hotbar.Model
 {
     public class NPCModel : MonoBehaviour
     {
-        public float moveSpeed = 1.0f;
+        public float moveSpeed = 0.01f;
 
-        public void SetMoveSpeed(int moveSpeed) => this.moveSpeed = moveSpeed;
+        public void SetMoveSpeed(float moveSpeed) => this.moveSpeed = moveSpeed;
     }
 }
 

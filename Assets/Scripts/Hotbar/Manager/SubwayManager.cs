@@ -9,9 +9,14 @@ namespace Hotbar.Manager
 {
     public class SubwayManager : SingletonMonoBase<SubwayManager>
     {
+        public Animator subwayLeftDoor;
+        public Animator subwayRightDoor;
+
         public List<string> stationList;
         public int currentStationIndex;
         public int departStationIndex;
+
+        private bool isLeft = false;
 
         public void InitStation()
         {
@@ -41,6 +46,19 @@ namespace Hotbar.Manager
         public async Task OpenDoor()
         {
             "[Start Door Animation]".LogWarning();
+
+            isLeft = true;
+
+            //isLeft = Random.Range(0, 2) == 0;
+
+            if (isLeft)
+            {
+                subwayLeftDoor.SetBool("isopen", true);
+            }
+            else
+            {
+                subwayRightDoor.SetBool("isopen", true);
+            }
         }
 
         public async Task Wait()
@@ -52,6 +70,15 @@ namespace Hotbar.Manager
         public async Task CloseDoor()
         {
             "[Close Door Animation]".LogWarning();
+
+            if (isLeft)
+            {
+                subwayLeftDoor.SetBool("isopen", false);
+            }
+            else
+            {
+                subwayRightDoor.SetBool("isopen", false);
+            }
         }
     }
 }

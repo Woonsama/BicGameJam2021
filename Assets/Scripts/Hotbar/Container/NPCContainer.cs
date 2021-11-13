@@ -23,6 +23,12 @@ namespace Hotbar.Container
         [Header("Initial Generate Pos")]
         public List<Transform> initialGenerateTransformList;
 
+        [Header("Left Door Generate Pos")]
+        public List<Transform> leftDoorGenerateTransformList;
+
+        [Header("Right Door Generate Pos")]
+        public List<Transform> rightDoorGenerateTransformList;
+
         private int npcCreateCount = 0;
 
         public void Init()
@@ -39,8 +45,29 @@ namespace Hotbar.Container
             }
         }
 
-        public async Task TransfortNPC()
+        public async Task TransfortNPC(bool isLeft)
         {
+            if(isLeft)
+            {
+                for (int i = 0; i < rightDoorGenerateTransformList.Count; i++)
+                {
+                    var script = CreateNPC();
+                    script.transform.position = rightDoorGenerateTransformList[i].position;
+                    script.ID = ++npcCreateCount;
+                    _ = script.Behaviours();
+                }
+            }
+            else
+            {
+                for (int i = 0; i < initialGenerateTransformList.Count; i++)
+                {
+                    var script = CreateNPC();
+                    script.transform.position = leftDoorGenerateTransformList[i].position;
+                    script.ID = ++npcCreateCount;
+                    _ = script.Behaviours();
+                }
+            }
+
 
         }
 

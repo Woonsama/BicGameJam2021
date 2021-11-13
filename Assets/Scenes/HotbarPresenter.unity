@@ -463,6 +463,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 565b1d7036ab69345972f6e9a8ffb63f, type: 3}
+--- !u!95 &853982544 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7068660424225526020, guid: ae15befbd3f032e4a855779e702499e0, type: 3}
+  m_PrefabInstance: {fileID: 1823425779}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &920048103
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,6 +627,11 @@ MonoBehaviour:
   mainCamera: {fileID: 963194227}
   lerpPosition: {x: 0, y: 1, z: -3}
   lerpSmooth: 1
+--- !u!95 &1101586460 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7566312750310686679, guid: ae15befbd3f032e4a855779e702499e0, type: 3}
+  m_PrefabInstance: {fileID: 1823425779}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1116206645
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,7 +928,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae787f5a62e891b48aac2617932a1e9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stationList: []
+  subwayLeftDoor: {fileID: 1101586460}
+  subwayRightDoor: {fileID: 853982544}
+  stationList:
+  - "\uC2E0\uB9BC"
+  - "\uBD09\uCC9C"
+  - "\uC11C\uC6B8\uB300\uC785\uAD6C"
   currentStationIndex: 0
   departStationIndex: 0
 --- !u!1 &2018491289

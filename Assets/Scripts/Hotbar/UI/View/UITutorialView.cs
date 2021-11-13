@@ -17,8 +17,7 @@ namespace Hotbar.UI.View
 
         public async Task StartTutorial()
         {
-            PlayerPrefs.DeleteAll();
-            var playCount = PlayerPrefs.GetInt("playCount", -1);
+            var playCount = PlayerPrefs.GetInt("playCount");
             playCount.LogError();
 
             if (playCount == -1)

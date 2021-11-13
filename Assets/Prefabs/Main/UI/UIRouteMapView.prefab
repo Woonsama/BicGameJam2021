@@ -974,7 +974,7 @@ Animation:
   m_GameObject: {fileID: 1428404873}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: b986775f139e09c46a2269e513f0b664, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: b986775f139e09c46a2269e513f0b664, type: 2}
   m_WrapMode: 0
@@ -1496,7 +1496,7 @@ Animation:
   m_GameObject: {fileID: 2019452256}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 1cae1d5ab586c844e97512914e1d68e4, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 1cae1d5ab586c844e97512914e1d68e4, type: 2}
   m_WrapMode: 0
@@ -1746,7 +1746,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &1668375279034878705
 MonoBehaviour:
   m_ObjectHideFlags: 0

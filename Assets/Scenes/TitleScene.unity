@@ -533,6 +533,10 @@ PrefabInstance:
       propertyPath: titleAnim
       value: 
       objectReference: {fileID: 2094036229}
+    - target: {fileID: 4899199732690717807, guid: eed086de55d36be45b7eb5e1b843cf56, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd461c7a802c9d7499364714d58e1c4b, type: 3}
     - target: {fileID: 4899199732899345877, guid: eed086de55d36be45b7eb5e1b843cf56, type: 3}
       propertyPath: m_RaycastTarget
       value: 0

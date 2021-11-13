@@ -46,3 +46,7 @@ MonoBehaviour:
   viewList:
   - value1: 0
     value2: {fileID: 1668375279034878707, guid: e54324141db40904f84e6f86c635f9b8, type: 3}
+  - value1: 2
+    value2: {fileID: 1668375279034878707, guid: 07c5280638f162742a1a8f6b9e5778ef, type: 3}
+  - value1: 3
+    value2: {fileID: 1668375279034878707, guid: c59661392ca72ba4faa038a2f086070c, type: 3}

@@ -80,7 +80,7 @@ namespace Hotbar.Manager
                 $"다음 역은 {stationList[currentStationIndex + 1].Item1} 입니다. 내리실 문은 {rotText} 입니다.".LogWarning();
 
                 var length = SoundManager.Instance.PlaySE(stationList[currentStationIndex + 1].Item2);
-
+                NPCContainer.Instance.npcList.Clear();
                 NPCContainer.Instance.SelectRandomNPC();
                 List<NPCPresenter> list = NPCContainer.Instance.npcList;
                 for(int i=0; i<list.Count; i++)
@@ -89,8 +89,7 @@ namespace Hotbar.Manager
                     _=list[i].Gather();
                 }
                 "ShowScreen".Log();
-                list.Count.Log();
-                NPCContainer.Instance.npcList.Clear();
+                
                 yield return new WaitForSeconds(length);
             }
             else
@@ -113,13 +112,20 @@ namespace Hotbar.Manager
             if (isLeft)
             {
                 subwayLeftDoor.SetBool("isopen", true);
-                NPCContainer.Instance.TransfortNPC(true, 8);
             }
             else
             {
                 subwayRightDoor.SetBool("isopen", true);
-                NPCContainer.Instance.TransfortNPC(false, 8);
             }
+
+            List<NPCPresenter> list = NPCContainer.Instance.npcList;
+            for (int i = 0; i < list.Count; i++)
+            {
+                "GoOut실행".Log();
+                _ = list[i].GoOut(isLeft);
+            }
+            
+            //NPCContainer.Instance.TransfortNPC(isLeft, 8);
 
             yield return null;
         }

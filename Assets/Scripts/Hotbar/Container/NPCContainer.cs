@@ -31,6 +31,7 @@ namespace Hotbar.Container
         public List<Transform> rightDoorGenerateTransformList;
 
         private int npcCreateCount = 0;
+        private int npcID = 0;
 
         public void Init()
         {
@@ -40,7 +41,8 @@ namespace Hotbar.Container
 
                 script.transform.position = initialGenerateTransformList[i].position;
 
-                script.ID = ++npcCreateCount;
+                script.ID = ++npcID;
+                ++npcCreateCount;
 
                 _ = script.Behaviours();
             }
@@ -53,9 +55,6 @@ namespace Hotbar.Container
             if (npcCreateCount + num >= MaxNpcCount)
             {
                 "TransfortNPC if¹®".Log();
-                num.Log();
-                npcCreateCount.Log();
-                MaxNpcCount.Log();
                 num = MaxNpcCount - npcCreateCount;
                 
                 if (num <= 0)
@@ -69,8 +68,9 @@ namespace Hotbar.Container
                 {
                     var script = CreateNPC();
                     script.transform.position = leftDoorGenerateTransformList[i].position;
-                    script.ID = ++npcCreateCount;
-                    _ = script.Comein(isLeft);
+                    script.ID = ++npcID;
+                    ++npcCreateCount;
+                    _ = script.ComeIn(isLeft);
                 }
             }
             else
@@ -79,8 +79,9 @@ namespace Hotbar.Container
                 {
                     var script = CreateNPC();
                     script.transform.position = rightDoorGenerateTransformList[i].position;
-                    script.ID = ++npcCreateCount;
-                    _ = script.Comein(isLeft);
+                    script.ID = ++npcID;
+                    ++npcCreateCount;
+                    _ = script.ComeIn(isLeft);
                 }
             }
 
@@ -101,9 +102,17 @@ namespace Hotbar.Container
 
         public void SelectRandomNPC()
         {
+            GameObject selected;
             "selectRandom".Log();
             int num = Random.Range(0, MaxOutCount);
-            GameObject selected;
+            if(num + npcCreateCount >= MaxNpcCount)
+            {
+                num = MaxNpcCount - npcCreateCount;
+
+                if (num <= 0)
+                    return;
+            }
+            
 
             for (int i = 0; i < num; i++)
             {
@@ -116,8 +125,9 @@ namespace Hotbar.Container
         public void RemoveNPC(int id)
         {
             var target = npcList.Find(targetNPC => targetNPC.ID == id);
+            npcCreateCount--;
             npcList.Remove(target);
-            Destroy(target);
+            Destroy(target.gameObject);
         }
 
         #region Private

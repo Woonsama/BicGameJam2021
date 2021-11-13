@@ -30,7 +30,7 @@ namespace Hotbar.Container
         [Header("Right Door Generate Pos")]
         public List<Transform> rightDoorGenerateTransformList;
 
-        private int npcCreateCount = 0;
+        public int npcCreateCount = 0;
         private int npcID = 0;
 
         public void Init()
@@ -45,6 +45,7 @@ namespace Hotbar.Container
                 ++npcCreateCount;
 
                 _ = script.Behaviours();
+                _ = script.CheckInside();
             }
         }
 
@@ -71,6 +72,7 @@ namespace Hotbar.Container
                     script.ID = ++npcID;
                     ++npcCreateCount;
                     _ = script.ComeIn(isLeft);
+                    _ = script.CheckInside();
                 }
             }
             else
@@ -82,6 +84,7 @@ namespace Hotbar.Container
                     script.ID = ++npcID;
                     ++npcCreateCount;
                     _ = script.ComeIn(isLeft);
+                    _ = script.CheckInside();
                 }
             }
 
@@ -125,11 +128,8 @@ namespace Hotbar.Container
         public void RemoveNPC(int id)
         {
             var target = npcList.Find(targetNPC => targetNPC.ID == id);
-            if(target != null)
-            {
-                npcList.Remove(target);
-            }
             npcCreateCount--;
+            npcList.Remove(target);
             Destroy(target.gameObject);
         }
 

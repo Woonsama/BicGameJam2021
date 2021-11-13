@@ -134,9 +134,22 @@ namespace Hotbar.Presenter
             }
         }
 
-        
+        public async Task CheckInside()
+        {
+            while (true)
+            {
+                if(transform.position.x < 5 || transform.position.x > -5)
+                {
+                    isInside = false;
+                    break;
+                }
+                await UniTask.NextFrame();
+            }
+        }
 
-        
+
+
+
     }
 }
 

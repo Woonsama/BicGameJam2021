@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8212191970998358486}
   - component: {fileID: 8212191970998358505}
   - component: {fileID: 8212191970998358504}
+  - component: {fileID: 6735267247904407733}
   - component: {fileID: 8212191970998358484}
   m_Layer: 0
   m_Name: LeftDepart
@@ -96,6 +97,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6735267247904407733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8212191970998358507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc07c654a9b16d4a99018a1ba10aa56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8212191970998358484
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -45,26 +45,26 @@ namespace Hotbar.Container
             }
         }
 
-        public async Task TransfortNPC(bool isLeft)
+        public async void TransfortNPC(bool isLeft)
         {
-            if(isLeft)
+            if(!isLeft)
+            {
+                for (int i = 0; i < leftDoorGenerateTransformList.Count; i++)
+                {
+                    var script = CreateNPC();
+                    script.transform.position = leftDoorGenerateTransformList[i].position;
+                    script.ID = ++npcCreateCount;
+                    _ = script.Left_Comein();
+                }
+            }
+            else
             {
                 for (int i = 0; i < rightDoorGenerateTransformList.Count; i++)
                 {
                     var script = CreateNPC();
                     script.transform.position = rightDoorGenerateTransformList[i].position;
                     script.ID = ++npcCreateCount;
-                    _ = script.Behaviours();
-                }
-            }
-            else
-            {
-                for (int i = 0; i < initialGenerateTransformList.Count; i++)
-                {
-                    var script = CreateNPC();
-                    script.transform.position = leftDoorGenerateTransformList[i].position;
-                    script.ID = ++npcCreateCount;
-                    _ = script.Behaviours();
+                    _ = script.Right_Comein();
                 }
             }
 

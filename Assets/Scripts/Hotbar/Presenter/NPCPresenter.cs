@@ -76,10 +76,35 @@ namespace Hotbar.Presenter
             }    
         }
 
+        public async Task Gather()
+        {
+            Vector3 target_Pos = new Vector3(0f, 0f, 0f);
+            float time = 0f;
+            int frequency = Random.Range(2, 4);
+
+            while(true)
+            {
+                if(time > frequency)
+                {
+                    time = 0f;
+                    if (Vector3.Distance(transform.position, new Vector3(0f, 0f, 0f)) < 2f)
+                        break;
+                    else
+                        frequency = Random.Range(2, 4);
+                }
+                transform.LookAt(target_Pos);
+                transform.position += transform.forward * moveSpeed * Time.deltaTime;
+                time += Time.deltaTime;
+            }
+            
+        }
+
         public async Task Goout(bool left)
         {
-
+            
         }
+
+        
 
         
     }

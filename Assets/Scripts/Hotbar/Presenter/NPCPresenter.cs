@@ -11,7 +11,7 @@ namespace Hotbar.Presenter
 {
     public class NPCPresenter : NPCModel
     {
-
+        public Animator enemy_anim;
         public enum NpcState
         {
             Stop,
@@ -55,7 +55,8 @@ namespace Hotbar.Presenter
             SetMoveSpeed(3f);
             float time = 0f;
 
-            while(true)
+            GetComponent<NPCPresenter>().enemy_anim.SetBool("isWalk", true);
+            while (true)
             {
                 time += Time.deltaTime;
                 transform.LookAt(target_Pos);
@@ -73,7 +74,8 @@ namespace Hotbar.Presenter
                 }             
                 
                 await UniTask.NextFrame();
-            }    
+            }
+            GetComponent<NPCPresenter>().enemy_anim.SetBool("isWalk", false);
         }
 
         public async Task Gather()
@@ -84,7 +86,7 @@ namespace Hotbar.Presenter
             int frequency = Random.Range(2, 4);
 
             SetMoveSpeed(3f);
-
+            GetComponent<NPCPresenter>().enemy_anim.SetBool("isWalk", true);
             while (true)
             {
                 if (transform.position.z < 2f)
@@ -98,7 +100,8 @@ namespace Hotbar.Presenter
                 "ÀÌµ¿".Log();
                 await UniTask.NextFrame();
             }
-            
+            GetComponent<NPCPresenter>().enemy_anim.SetBool("isWalk", false);
+
         }
 
         public async Task GoOut(bool isLeft)
@@ -113,6 +116,7 @@ namespace Hotbar.Presenter
             SetMoveSpeed(3f);
             float time = 0f;
 
+            GetComponent<NPCPresenter>().enemy_anim.SetBool("isWalk", true);
             while (true)
             {
                 time += Time.deltaTime;

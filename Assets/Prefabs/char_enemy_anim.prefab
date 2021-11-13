@@ -521,6 +521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.01
   isInside: 0
+  enemy_anim: {fileID: 7672929429717606085}
   ID: 0
 --- !u!82 &4511137774200087345
 AudioSource:

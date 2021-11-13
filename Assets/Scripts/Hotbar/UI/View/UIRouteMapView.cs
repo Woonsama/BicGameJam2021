@@ -22,8 +22,8 @@ namespace Hotbar.UI.View
 
         public async override Task InitView()
         {
-            $"현재 역은 {SubwayManager.Instance.stationList[SubwayManager.Instance.currentStationIndex]} 입니다".LogWarning();
-            $"목표 역은 {SubwayManager.Instance.stationList[SubwayManager.Instance.departStationIndex]} 입니다".LogWarning();
+            $"현재 역은 {SubwayManager.Instance.stationList[SubwayManager.Instance.currentStationIndex].Item1} 입니다".LogWarning();
+            $"목표 역은 {SubwayManager.Instance.stationList[SubwayManager.Instance.departStationIndex].Item1} 입니다".LogWarning();
         }
 
         public async Task StartAnimation()

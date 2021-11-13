@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
+using Hotbar.Utils;
 
 namespace Hotbar.Manager
 {
@@ -20,7 +21,7 @@ namespace Hotbar.Manager
         public Animator subwayLeftDoor;
         public Animator subwayRightDoor;
 
-        public List<string> stationList;
+        public List<UniTuple<string, AudioClip, bool>> stationList = new List<UniTuple<string, AudioClip, bool>>();
         public int currentStationIndex;
         public int departStationIndex;
 
@@ -67,7 +68,7 @@ namespace Hotbar.Manager
             if(currentStationIndex + 1 <= departStationIndex)
             {
                 var rotText = isLeft == true ? "왼쪽" : "오른쪽";
-                $"다음 역은 {stationList[currentStationIndex + 1]} 입니다. 내리실 문은 {rotText} 입니다.".LogWarning();
+                $"다음 역은 {stationList[currentStationIndex + 1].Item1} 입니다. 내리실 문은 {rotText} 입니다.".LogWarning();
             }
 
             yield return null;

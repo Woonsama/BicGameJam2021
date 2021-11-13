@@ -891,9 +891,57 @@ MonoBehaviour:
   subwayLeftDoor: {fileID: 1101586460}
   subwayRightDoor: {fileID: 853982544}
   stationList:
-  - "\uC2E0\uB9BC"
-  - "\uBD09\uCC9C"
-  - "\uC11C\uC6B8\uB300\uC785\uAD6C"
+  - value1: "\uAD6C\uB85C\uB514\uC9C0\uD138\uB2E8\uC9C0"
+    value2: {fileID: 8300000, guid: 9afc6b21c84cb85499344cc073380870, type: 3}
+    value3: 0
+  - value1: "\uC2E0\uB300\uBC29"
+    value2: {fileID: 8300000, guid: e6fb8d13d893bdc41a5b06417a69098e, type: 3}
+    value3: 0
+  - value1: "\uC2E0\uB9BC"
+    value2: {fileID: 8300000, guid: 7d562ef658b980041ab432b7db628295, type: 3}
+    value3: 1
+  - value1: "\uBD09\uCC9C"
+    value2: {fileID: 8300000, guid: bc4677c9dbb51a24abd23dbf31815308, type: 3}
+    value3: 1
+  - value1: "\uC11C\uC6B8\uB300\uC785\uAD6C"
+    value2: {fileID: 8300000, guid: 8f90c55d1c492344f9d631c83b0f3eeb, type: 3}
+    value3: 1
+  - value1: "\uB099\uC131\uB300"
+    value2: {fileID: 8300000, guid: 695a10da409236542a96598d19d7af79, type: 3}
+    value3: 0
+  - value1: "\uC0AC\uB2F9"
+    value2: {fileID: 8300000, guid: dc0e8309d9369cf4baa30dba7d14d8f2, type: 3}
+    value3: 0
+  - value1: "\uBC29\uBC30"
+    value2: {fileID: 8300000, guid: c5b5455744cfc98479d8e2121fdd296c, type: 3}
+    value3: 0
+  - value1: "\uC11C\uCD08"
+    value2: {fileID: 8300000, guid: 166b1ba6174471f448bec46c66c20c92, type: 3}
+    value3: 0
+  - value1: "\uAD50\uB300"
+    value2: {fileID: 8300000, guid: 58b6bed61790ab7429c648ad69384c68, type: 3}
+    value3: 0
+  - value1: "\uAC15\uB0A8"
+    value2: {fileID: 8300000, guid: 4cef3c469793fa14086f3ad1469c4bf1, type: 3}
+    value3: 0
+  - value1: "\uC5ED\uC0BC"
+    value2: {fileID: 8300000, guid: 361fed63d30d20e40ae7fd3d5395448a, type: 3}
+    value3: 0
+  - value1: "\uC120\uB989"
+    value2: {fileID: 8300000, guid: 6717d8461ff8aa94fb69f906ff38582b, type: 3}
+    value3: 0
+  - value1: "\uC0BC\uC131"
+    value2: {fileID: 8300000, guid: 45ffdbe592dca9144afc1b9b70f6ca44, type: 3}
+    value3: 1
+  - value1: "\uC885\uD569\uC6B4\uB3D9\uC7A5"
+    value2: {fileID: 8300000, guid: 66e0ccf777eff4641b00e1213b9afa72, type: 3}
+    value3: 0
+  - value1: "\uC2E0\uCD0C"
+    value2: {fileID: 8300000, guid: f28346d06fac4aa4c9507a7fb60b6391, type: 3}
+    value3: 0
+  - value1: "\uC7A0\uC2E4"
+    value2: {fileID: 8300000, guid: af80b0cbb4e507f4aa4fe13dba386aa9, type: 3}
+    value3: 0
   currentStationIndex: 0
   departStationIndex: 0
 --- !u!1 &2018491289

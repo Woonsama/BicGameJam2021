@@ -1244,6 +1244,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7759731129807333727, guid: 83f8f5468c8b7d84a8d9e25ec32d8c71, type: 3}
+      propertyPath: npc
+      value: 
+      objectReference: {fileID: 4021790135090208261, guid: 28314091ec245ba48ac4e0aeefb3295c, type: 3}
+    - target: {fileID: 7759731129807333727, guid: 83f8f5468c8b7d84a8d9e25ec32d8c71, type: 3}
       propertyPath: initialGenerateTransformList.Array.size
       value: 6
       objectReference: {fileID: 0}

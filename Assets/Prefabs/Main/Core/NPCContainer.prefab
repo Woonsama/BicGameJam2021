@@ -43,5 +43,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d0a09246250a4245ba05d999667f211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npc: {fileID: 1269342396867068244, guid: 27a4aefe356c2494497a4ec0128bb872, type: 3}
+  MaxInCount: 6
+  MaxOutCount: 5
+  npc: {fileID: 4021790135090208261, guid: 28314091ec245ba48ac4e0aeefb3295c, type: 3}
   npcList: []
+  initialGenerateTransformList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  leftDoorGenerateTransformList: []
+  rightDoorGenerateTransformList: []

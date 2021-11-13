@@ -78,7 +78,7 @@ namespace Hotbar.Manager
         {
             if(currentStationIndex + 1 <= departStationIndex)
             {
-                var rotText = isLeft == true ? "왼쪽" : "오른쪽";
+                var rotText = isLeft == true ? "오른쪽" : "왼쪽";
                 $"다음 역은 {stationList[currentStationIndex + 1].Item1} 입니다. 내리실 문은 {rotText} 입니다.".LogWarning();
 
                 var length = SoundManager.Instance.PlaySE(stationList[currentStationIndex + 1].Item3);

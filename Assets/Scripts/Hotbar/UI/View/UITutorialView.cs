@@ -26,7 +26,7 @@ namespace Hotbar.UI.View
                 {
                     explainImage.sprite = explainSpriteList[i];
                     await explainImage.DOFade(1, 1.0f).AsyncWaitForCompletion();
-                    await Task.Delay(500);
+                    await Task.Delay(2500);
                     await explainImage.DOFade(0, 1.0f).AsyncWaitForCompletion();
                 }
 

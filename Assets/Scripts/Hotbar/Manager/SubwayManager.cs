@@ -8,6 +8,7 @@ using DG.Tweening;
 using Hotbar.Utils;
 using Hotbar.Presenter;
 using Hotbar.Container;
+using Hotbar.UI;
 
 namespace Hotbar.Manager
 {
@@ -154,7 +155,10 @@ namespace Hotbar.Manager
 
             currentStationIndex++;
             if(currentStationIndex > departStationIndex)
+            {
                 "[게임 클리어 실패]".LogError();
+                UIManager.Instance.OpenView(UIManager.ViewType.Fail);
+            }
             yield return null;
         }
 

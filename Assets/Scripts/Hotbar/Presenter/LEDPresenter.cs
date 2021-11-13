@@ -16,7 +16,7 @@ namespace Hotbar.Presenter
 
         public void ChangeLED(bool isLeft)
         {
-            var isTrue = Random.Range(0, 100) <= 80;
+            var isTrue = Random.Range(0, 100) <= 90;
 
             if(isTrue)
             {

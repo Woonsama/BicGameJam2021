@@ -125,8 +125,11 @@ namespace Hotbar.Container
         public void RemoveNPC(int id)
         {
             var target = npcList.Find(targetNPC => targetNPC.ID == id);
+            if(target != null)
+            {
+                npcList.Remove(target);
+            }
             npcCreateCount--;
-            npcList.Remove(target);
             Destroy(target.gameObject);
         }
 

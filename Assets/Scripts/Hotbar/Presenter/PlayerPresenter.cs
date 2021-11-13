@@ -31,7 +31,7 @@ namespace Hotbar.Presenter
             //Force
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Instantiate(forcePrefab, transform.position, transform.rotation);
+                Instantiate(forcePrefab, transform.position + new Vector3(0f, 2f, 0f), transform.rotation);
                 animator.SetInteger("State", 2);
                 source.clip = forceClip;
                 source.Play();

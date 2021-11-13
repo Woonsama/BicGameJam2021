@@ -150,7 +150,8 @@ namespace Hotbar.Manager
             }
 
             currentStationIndex++;
-
+            if(currentStationIndex > departStationIndex)
+                "[게임 클리어 실패]".LogError();
             yield return null;
         }
 

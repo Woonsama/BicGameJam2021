@@ -126,10 +126,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf67839f7f0a5a246bca545b3dfeb988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  source: {fileID: 0}
+  forceClip: {fileID: 0}
   forcePrefab: {fileID: 8979203347732481132, guid: fc086f4ebb6c10b4da4326449065f71c, type: 3}
   dirObj: {fileID: 1129035745011509390}
   speed: 0.1
   smooth: 10
+  wallCheck_distance: 1.5
+  isMoveAvailable: 1
 --- !u!1 &1129035745011509390
 GameObject:
   m_ObjectHideFlags: 0

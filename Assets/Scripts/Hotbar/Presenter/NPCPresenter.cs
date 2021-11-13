@@ -52,14 +52,14 @@ namespace Hotbar.Presenter
             else
                 target_Pos = new Vector3(4f, 0f, 0f);
 
-            SetMoveSpeed(0.1f);
+            SetMoveSpeed(3f);
             float time = 0f;
 
             while(true)
             {
                 time += Time.deltaTime;
                 transform.LookAt(target_Pos);
-                transform.position += transform.forward * moveSpeed;
+                transform.position += transform.forward * moveSpeed * Time.deltaTime;
 
                 if (isLeft)
                 {
@@ -73,9 +73,12 @@ namespace Hotbar.Presenter
                 }             
                 
                 await UniTask.NextFrame();
-            }
-            
-            
+            }    
+        }
+
+        public async Task Goout(bool left)
+        {
+
         }
 
         

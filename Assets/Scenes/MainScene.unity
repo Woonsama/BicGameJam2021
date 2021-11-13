@@ -375,6 +375,11 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 7068660424225526020, guid: ae15befbd3f032e4a855779e702499e0, type: 3}
   m_PrefabInstance: {fileID: 1823425779}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &909581161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7566312749813204246, guid: ae15befbd3f032e4a855779e702499e0, type: 3}
+  m_PrefabInstance: {fileID: 1823425779}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &920048103
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,8 +538,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 963194227}
-  lerpPosition: {x: 0, y: 1, z: -3}
-  lerpSmooth: 1
+  lerpPosition: {x: 0, y: 3.5, z: -4}
+  lerpSmooth: 2
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -880,6 +885,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae787f5a62e891b48aac2617932a1e9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  map: {fileID: 909581161}
+  shakeDuration: 1
+  shakeRandomRange: {x: 0.3, y: 0, z: 0.1}
   subwayLeftDoor: {fileID: 1101586460}
   subwayRightDoor: {fileID: 853982544}
   stationList:

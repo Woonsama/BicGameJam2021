@@ -119,8 +119,9 @@ namespace Hotbar.Manager
         {
             while(true)
             {
-                yield return ShakeMap(shakeDuration, shakeRandomRange);
-                yield return new WaitForSeconds(.5f);
+                //yield return ShakeMap(shakeDuration, shakeRandomRange);
+                map.transform.DOPunchRotation(shakeRandomRange, 1, 1).SetLoops(2, LoopType.Yoyo);
+                yield return new WaitForSeconds(1.0f);
             }
         }
 

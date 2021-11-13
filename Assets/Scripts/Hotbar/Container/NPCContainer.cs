@@ -45,42 +45,6 @@ namespace Hotbar.Container
             }
         }
 
-        public void SetGenerateTransformList(bool isLeft, int num)
-        {
-            List<Transform> List;
-            GameObject cur;
-            GameObject standard = new GameObject();
-            
-            float unitNum_x;
-            float unitNum_z = 1.5f;
-            
-
-            if(isLeft)
-            {
-                List = leftDoorGenerateTransformList;
-                standard.transform.position = new Vector3(-6f, 0f, 0f);
-                unitNum_x = -1.0f;
-            }
-            else
-            {
-                List = rightDoorGenerateTransformList;
-                standard.transform.position = new Vector3(6f, 0f, 0f);
-                unitNum_x = 1.0f;
-            }
-
-            cur = standard;
-
-            for (int i =0; i<num; i++)
-            {
-                
-
-                cur.transform.position = new Vector3(i * unitNum_x, 0f, unitNum_z) + standard.transform.position;
-                
-                
-                List.Add(cur.transform);
-                Debug.Log(cur.transform.position);
-            }
-        }
 
         public async void TransfortNPC(bool isLeft, int num)
         {

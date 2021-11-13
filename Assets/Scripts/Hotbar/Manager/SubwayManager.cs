@@ -31,6 +31,7 @@ namespace Hotbar.Manager
         public LEDPresenter ledPresenter;
 
         private bool isLeft = false;
+        public bool isClose = true;
 
         public void InitStation()
         {
@@ -105,6 +106,7 @@ namespace Hotbar.Manager
             "[Start Door Animation]".LogWarning();
 
             isLeft = stationList[currentStationIndex].Item3;
+            isClose = false;
 
             //LED
             ledPresenter.ChangeLED(isLeft);
@@ -117,15 +119,15 @@ namespace Hotbar.Manager
             {
                 subwayRightDoor.SetBool("isopen", true);
             }
-
+            /*
             List<NPCPresenter> list = NPCContainer.Instance.npcList;
             for (int i = 0; i < list.Count; i++)
             {
                 "GoOut½ÇÇà".Log();
                 _ = list[i].GoOut(isLeft);
             }
-            
-            //NPCContainer.Instance.TransfortNPC(isLeft, 8);
+            */
+            NPCContainer.Instance.TransfortNPC(isLeft, 8);
 
             yield return null;
         }
@@ -139,6 +141,7 @@ namespace Hotbar.Manager
         private IEnumerator CloseDoor()
         {
             "[Close Door Animation]".LogWarning();
+            isClose = true;
 
             if (isLeft)
             {

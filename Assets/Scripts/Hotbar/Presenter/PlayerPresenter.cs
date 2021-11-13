@@ -62,7 +62,7 @@ namespace Hotbar.Presenter
 
             if (isMoveAvailable && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)))
             {
-                transform.position += transform.forward.normalized * speed * Time.deltaTime;
+                transform.position += new Vector3(transform.forward.x, 0f, transform.forward.z).normalized * speed * Time.deltaTime;
                 animator.SetInteger("State", 1);
             }
             else

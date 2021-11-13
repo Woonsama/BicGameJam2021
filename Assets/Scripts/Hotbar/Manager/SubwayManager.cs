@@ -47,6 +47,8 @@ namespace Hotbar.Manager
             StartCoroutine(StartSuywayFramework());
         }
 
+        public bool DepartCheck() => currentStationIndex >= departStationIndex;
+
         #region Private
 
         private IEnumerator StartSuywayFramework()

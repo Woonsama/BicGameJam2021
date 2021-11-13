@@ -77,27 +77,6 @@ namespace Hotbar.Presenter
             isMoveAvailable = true;
             
         }
-
-        public void GroundCheck()
-        {
-            Debug.DrawRay(transform.position, Vector3.down * 10, new Color(0, 1, 0));
-
-            if (Physics.Raycast(transform.position, Vector3.down, 10f))
-            {
-                "GroundCheck".Log();
-            }
-        }
-        
-        public void WallCheck()
-        {
-            Debug.DrawRay(transform.position + new Vector3(0f, 0.5f, 0f), transform.forward*1.5f, new Color(0, 1, 0));
-
-            if (Physics.Raycast(transform.position, transform.forward, 1.5f))
-            {
-                "WallCheck".Log();
-                isMoveAvailable = false;
-            }
-        }
     }
 }
 

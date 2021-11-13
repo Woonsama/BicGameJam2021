@@ -9,8 +9,6 @@ namespace Hotbar.Manager
 {
     public class MainSceneManager : SingletonMonoBase<MainSceneManager>
     {
-        public bool isGameClear = false;
-
         public async void Awake()
         {
             SubwayManager.Instance.InitStation();
@@ -30,20 +28,7 @@ namespace Hotbar.Manager
 
             //Subway Init
             SubwayManager.Instance.Play();
-
-            //Check Game Clear
-            _ = CheckClear();
         }
-
-        #region Private
-
-        private async Task CheckClear()
-        {
-            await UniTask.WaitUntil(() => isGameClear == true);
-            //Open Game Clear Popup
-        }
-
-        #endregion
     }
 }
 

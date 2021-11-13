@@ -40,6 +40,28 @@ namespace Hotbar.Presenter
                 }
             }           
         }
+
+        public async Task Left_Comein()
+        {
+            Vector3 target_Pos = new Vector3(5f, 0f, 0f);
+            Rigidbody rb = GetComponent<Rigidbody>();
+            float time = 0f;
+            while(true)
+            {
+                time += Time.deltaTime;
+                transform.LookAt(target_Pos);
+                transform.position += transform.forward*0.01f;
+                //transform.position = Vector3.MoveTowards(transform.position, target_Pos, Time.deltaTime*2f);
+                await UniTask.NextFrame();
+            }
+            
+            
+        }
+
+        public async Task Right_Comein()
+        {
+            Vector3 target_Pos = new Vector3(-5f, 0f, 0f);
+        }
     }
 }
 

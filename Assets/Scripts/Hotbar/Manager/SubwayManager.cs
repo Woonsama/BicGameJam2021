@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
 using Hotbar.Utils;
+using Hotbar.Presenter;
 
 namespace Hotbar.Manager
 {
@@ -25,13 +26,16 @@ namespace Hotbar.Manager
         public int currentStationIndex;
         public int departStationIndex;
 
+        [Header("LED")]
+        public LEDPresenter ledPresenter;
+
         private bool isLeft = false;
 
         public void InitStation()
         {
-            var maxDistance = 3;
+            var maxDistance = 6;
 
-            currentStationIndex = Random.Range(0, stationList.Count - 3);
+            currentStationIndex = Random.Range(0, stationList.Count - maxDistance);
             departStationIndex = currentStationIndex + Random.Range(1, maxDistance);
             //currentStationIndex = Random.Range(0, stationList.Count);
         }
@@ -84,6 +88,9 @@ namespace Hotbar.Manager
             "[Start Door Animation]".LogWarning();
 
             isLeft = Random.Range(0, 2) == 0;
+
+            //LED
+            ledPresenter.ChangeLED(isLeft);
 
             if (isLeft)
             {

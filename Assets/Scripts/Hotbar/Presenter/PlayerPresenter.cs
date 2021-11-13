@@ -9,6 +9,8 @@ namespace Hotbar.Presenter
     public class PlayerPresenter : MonoBehaviour
     {
         public Animator animator;
+        public AudioSource source;
+        public AudioClip forceClip;
 
         public GameObject forcePrefab;
         public GameObject dirObj;
@@ -29,8 +31,10 @@ namespace Hotbar.Presenter
             //Force
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                animator.SetInteger("State", 2);
                 Instantiate(forcePrefab, transform.position, transform.rotation);
+                animator.SetInteger("State", 2);
+                source.clip = forceClip;
+                source.Play();
             }
         }
 
@@ -62,7 +66,7 @@ namespace Hotbar.Presenter
 
             if (isMoveAvailable && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)))
             {
-                transform.position += transform.forward.normalized * speed * Time.deltaTime;
+                transform.position += new Vector3(transform.forward.x, 0f, transform.forward.z).normalized * speed * Time.deltaTime;
                 animator.SetInteger("State", 1);
             }
             else

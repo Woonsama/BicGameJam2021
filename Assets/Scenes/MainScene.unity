@@ -887,7 +887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 909581161}
   shakeDuration: 1
-  shakeRandomRange: {x: 0.3, y: 0, z: 0.1}
+  shakeRandomRange: {x: 0.5, y: 0, z: 0.3}
   subwayLeftDoor: {fileID: 1101586460}
   subwayRightDoor: {fileID: 853982544}
   stationList:

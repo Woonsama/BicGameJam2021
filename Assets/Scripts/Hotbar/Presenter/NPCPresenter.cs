@@ -42,7 +42,7 @@ namespace Hotbar.Presenter
             }           
         }
 
-        public async Task Comein(bool isLeft)
+        public async Task ComeIn(bool isLeft)
         {
             Vector3 target_Pos;
             Rigidbody rb = GetComponent<Rigidbody>();
@@ -79,7 +79,7 @@ namespace Hotbar.Presenter
         public async Task Gather()
         {
             "Gather".Log();
-            Vector3 target_Pos = new Vector3(0f, 0f, 0f);
+            Vector3 target_Pos = new Vector3(transform.position.x, 0f, 0f);
             float time = 0f;
             int frequency = Random.Range(2, 4);
 
@@ -87,14 +87,10 @@ namespace Hotbar.Presenter
 
             while (true)
             {
-                if(time > frequency)
+                if (transform.position.z < 2f)
                 {
-                    "break체크".Log();
-                    time = 0f;
-                    if (Vector3.Distance(transform.position, new Vector3(0f, 0f, 0f)) < 4f)
-                        break;
-                    else
-                        frequency = Random.Range(2, 4);
+                    "NPC 중앙집결 Break".Log();
+                    break;
                 }
                 transform.LookAt(target_Pos);
                 transform.position += transform.forward * moveSpeed * Time.deltaTime;
@@ -105,9 +101,37 @@ namespace Hotbar.Presenter
             
         }
 
-        public async Task Goout(bool left)
+        public async Task GoOut(bool isLeft)
         {
-            
+            Vector3 target_Pos;
+
+            if (isLeft)
+                target_Pos = new Vector3(-6f, 0f, 0f);
+            else
+                target_Pos = new Vector3(6f, 0f, 0f);
+
+            SetMoveSpeed(3f);
+            float time = 0f;
+
+            while (true)
+            {
+                time += Time.deltaTime;
+                transform.LookAt(target_Pos);
+                transform.position += transform.forward * moveSpeed * Time.deltaTime;
+
+                if (isLeft)
+                {
+                    if (transform.position.x < -5.5)
+                        NPCContainer.Instance.RemoveNPC(GetComponent<NPCPresenter>().ID);
+                }
+                else
+                {
+                    if (transform.position.x > 5.5)
+                        NPCContainer.Instance.RemoveNPC(GetComponent<NPCPresenter>().ID);
+                }
+
+                await UniTask.NextFrame();
+            }
         }
 
         

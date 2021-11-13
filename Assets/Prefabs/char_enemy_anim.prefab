@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 94309037267890756}
   m_Layer: 0
   m_Name: char_enemy_anim
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -520,6 +520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.01
+  isInside: 0
   ID: 0
 --- !u!82 &4511137774200087345
 AudioSource:

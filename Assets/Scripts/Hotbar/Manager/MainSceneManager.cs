@@ -16,8 +16,8 @@ namespace Hotbar.Manager
             SubwayManager.Instance.InitStation();
 
             //Show Route Map
-            var routeMapView = await UIManager.Instance.OpenView(UIManager.ViewType.RouteMap);
-            await (routeMapView as UIRouteMapView).StartAnimation();
+            //var routeMapView = await UIManager.Instance.OpenView(UIManager.ViewType.RouteMap);
+            //await (routeMapView as UIRouteMapView).StartAnimation();
 
             //NPC Init
             NPCContainer.Instance.Init();

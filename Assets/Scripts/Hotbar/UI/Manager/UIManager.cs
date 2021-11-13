@@ -15,6 +15,8 @@ namespace Hotbar.UI
         {
             RouteMap,
             Screen,
+            Clear,
+            Fail,
         }
 
         public async Task<UIViewBase> OpenView(ViewType viewType)

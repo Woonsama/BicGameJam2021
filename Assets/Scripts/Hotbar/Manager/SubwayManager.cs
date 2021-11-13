@@ -29,8 +29,10 @@ namespace Hotbar.Manager
 
         public void InitStation()
         {
-            currentStationIndex = 0;
-            departStationIndex = 2;
+            var maxDistance = 3;
+
+            currentStationIndex = Random.Range(0, stationList.Count - 3);
+            departStationIndex = currentStationIndex + Random.Range(1, maxDistance);
             //currentStationIndex = Random.Range(0, stationList.Count);
         }
 
@@ -69,6 +71,9 @@ namespace Hotbar.Manager
             {
                 var rotText = isLeft == true ? "왼쪽" : "오른쪽";
                 $"다음 역은 {stationList[currentStationIndex + 1].Item1} 입니다. 내리실 문은 {rotText} 입니다.".LogWarning();
+
+                var length = SoundManager.Instance.PlaySE(stationList[currentStationIndex + 1].Item2);
+                yield return new WaitForSeconds(length);
             }
 
             yield return null;

@@ -1,12 +1,7 @@
 using Cysharp.Threading.Tasks;
 using Hotbar.Container;
 using Hotbar.Pattern;
-using Hotbar.UI;
-using Hotbar.UI.View;
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using UnityEngine;
 
 namespace Hotbar.Manager
 {

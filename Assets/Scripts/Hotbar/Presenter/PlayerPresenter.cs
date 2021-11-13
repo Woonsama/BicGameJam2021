@@ -14,6 +14,11 @@ namespace Hotbar.Presenter
         Vector3 direction;
         public float speed = 0.1f;
         public float smooth = 10f;
+        public float wallCheck_distance = 1.5f;
+
+        public bool isMoveAvailable = true;
+
+        RaycastHit hit;
 
         public void Update()
         {
@@ -49,11 +54,34 @@ namespace Hotbar.Presenter
             }
 
 
-            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+            if (isMoveAvailable && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)))
             {
-                transform.position += transform.forward.normalized * speed;
+                transform.position += transform.forward.normalized * speed * Time.deltaTime;
             }
+
+            isMoveAvailable = true;
             
+        }
+
+        public void GroundCheck()
+        {
+            Debug.DrawRay(transform.position, Vector3.down * 10, new Color(0, 1, 0));
+
+            if (Physics.Raycast(transform.position, Vector3.down, 10f))
+            {
+                "GroundCheck".Log();
+            }
+        }
+        
+        public void WallCheck()
+        {
+            Debug.DrawRay(transform.position + new Vector3(0f, 0.5f, 0f), transform.forward*1.5f, new Color(0, 1, 0));
+
+            if (Physics.Raycast(transform.position, transform.forward, 1.5f))
+            {
+                "WallCheck".Log();
+                isMoveAvailable = false;
+            }
         }
     }
 }

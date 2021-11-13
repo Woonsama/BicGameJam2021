@@ -139,10 +139,17 @@ namespace Hotbar.Manager
             yield return new WaitForSeconds(3);
         }
 
+        private IEnumerator WaitForClose()
+        {
+            yield return new WaitForSeconds(3);
+            isClose = true;
+        }
+
         private IEnumerator CloseDoor()
         {
             "[Close Door Animation]".LogWarning();
-            isClose = true;
+
+            StartCoroutine(WaitForClose());
 
             if (isLeft)
             {

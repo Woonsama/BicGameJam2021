@@ -8,17 +8,8 @@ using UnityEngine;
 public class OutsideChecker : MonoBehaviour
 {
 
-    //탑승 하는 경우
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "NPC")
-        {
-            "승차!".Log();
-            other.gameObject.GetComponent<NPCPresenter>().isInside = true;
-        }
-    }
-
-    //하차 하는 경우
+    //밀려서 하차 하는 경우
+    /*
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag == "NPC")
@@ -27,20 +18,24 @@ public class OutsideChecker : MonoBehaviour
             if (npc.isInside == true)
             {
                 "하차해서 사라짐!".Log();
-                NPCContainer.Instance.RemoveNPC(npc.ID);
+                NPCContainer.Instance.npcCreateCount--;
+                Destroy(other.gameObject);
+
             }
         }
     }
-    
-    //탑승하지 못한 경우
+    */
+
+    //탑승하지 못한 경우 && 밀려서 하차하는 경우
     public void OnTriggerStay(Collider other)
     {
         if(other.tag == "NPC")
         {
-            if(SubwayManager.Instance.isClose)
+            if(SubwayManager.Instance.isClose || other.gameObject.GetComponent<NPCPresenter>().isInside)
             {
                 "탑승 실패해서 사라짐!".Log();
-                NPCContainer.Instance.RemoveNPC(other.gameObject.GetComponent<NPCPresenter>().ID);
+                NPCContainer.Instance.npcCreateCount--;
+                Destroy(other.gameObject);
             }
         }
     }

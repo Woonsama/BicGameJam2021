@@ -81,7 +81,8 @@ namespace Hotbar.Manager
         {
             "[Subway Start Move]".LogWarning();
             var moveTime = Random.Range(3, 5);
-            isLeft = stationList[currentStationIndex+1].Item4;
+            isLeft = stationList[currentStationIndex + 1].Item4;
+            ledPresenter.ChangeLED(isLeft);
             yield return new WaitForSeconds(moveTime);
         }
 
@@ -119,9 +120,6 @@ namespace Hotbar.Manager
 
             
             isClose = false;
-
-            //LED
-            ledPresenter.ChangeLED(isLeft);
 
             if (isLeft)
             {

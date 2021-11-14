@@ -6,8 +6,7 @@ namespace Hotbar.Presenter
 {
     public class LEDPresenter : MonoBehaviour
     {
-        public Material frontLED;
-        public Material behindLED;
+        public Material led;
 
         public Texture trueLeft;
         public Texture trueRight;
@@ -18,38 +17,16 @@ namespace Hotbar.Presenter
         {
             var isTrue = Random.Range(0, 100) <= 75;
 
-            if(isTrue)
+            if (isTrue)
             {
-                if(isLeft)
-                {
-                    
-                    behindLED.mainTexture = trueRight;
-                    frontLED.mainTexture = trueLeft;
-                }
-                else
-                {
-                    
-                    behindLED.mainTexture = trueLeft;
-                    frontLED.mainTexture = trueRight;
-                }
+                led.mainTexture = isLeft ? trueLeft : trueRight;
             }
             else
             {
-                if(isLeft)
-                {
-                    
-                    behindLED.mainTexture = lieRight;
-                    frontLED.mainTexture = lieLeft;
-                }
-                else
-                {
-                    
-                    behindLED.mainTexture = lieLeft;
-                    frontLED.mainTexture = lieRight;
-                }
+                led.mainTexture = isLeft ? lieLeft : trueRight;
             }
 
-            frontLED.SetFloat("floatspeed", Random.Range(0.7f, 1.5f));
+            led.SetFloat("floatspeed", Random.Range(0.7f, 1.5f));
         }
     }
 }

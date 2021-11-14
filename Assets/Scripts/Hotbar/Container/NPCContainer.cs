@@ -53,8 +53,7 @@ namespace Hotbar.Container
         public async void TransfortNPC(bool isLeft, int num)
         {
             "Transfort".Log();
-            if (npcCreateCount + 
-                >= MaxNpcCount)
+            if (npcCreateCount + num >= MaxNpcCount)
             {
                 "TransfortNPC if¹®".Log();
                 num = MaxNpcCount - npcCreateCount;
@@ -96,7 +95,7 @@ namespace Hotbar.Container
         {
            GameObject selected;
 
-           if (num + npcCreateCount >= MaxNpcCount)
+           if(num + npcCreateCount >= MaxNpcCount)
            {
                 num = MaxNpcCount - npcCreateCount;
 
@@ -104,7 +103,7 @@ namespace Hotbar.Container
                     return;
            }
 
-            for (int i=0; i<num; i++)
+           for(int i=0; i<num; i++)
            {
                 int randomNum = Random.Range(0, MaxOutCount);
                 selected = transform.GetChild(randomNum).gameObject;

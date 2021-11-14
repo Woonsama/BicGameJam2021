@@ -110,6 +110,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
   range: 3
-  power: 10
+  power: 6000
   speed: 0.2
   hitEffect: {fileID: 749526023863929978, guid: 2cbd5d04e87769848bb776df9ec7c039, type: 3}

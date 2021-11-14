@@ -81,7 +81,7 @@ namespace Hotbar.Manager
         {
             "[Subway Start Move]".LogWarning();
             var moveTime = Random.Range(3, 5);
-            isLeft = stationList[currentStationIndex].Item4;
+            isLeft = stationList[currentStationIndex+1].Item4;
             yield return new WaitForSeconds(moveTime);
         }
 

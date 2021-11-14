@@ -17,16 +17,22 @@ namespace Hotbar.UI.View
         public Text departStationKorText;
         public Text departStationEnText;
 
+        public Animation anim;
+
         public async override Task InitView()
         {
+            $"현재 역은 {SubwayManager.Instance.stationList[SubwayManager.Instance.currentStationIndex].Item1} 입니다".LogWarning();
+            $"목표 역은 {SubwayManager.Instance.stationList[SubwayManager.Instance.departStationIndex].Item1} 입니다".LogWarning();
+
             currentStationKorText.text = SubwayManager.Instance.stationList[SubwayManager.Instance.currentStationIndex].Item1;
             currentStationEnText.text = SubwayManager.Instance.stationList[SubwayManager.Instance.currentStationIndex].Item2;
 
             departStationKorText.text = SubwayManager.Instance.stationList[SubwayManager.Instance.departStationIndex].Item1;
             departStationEnText.text = SubwayManager.Instance.stationList[SubwayManager.Instance.departStationIndex].Item2;
 
-            $"현재 역은 {SubwayManager.Instance.stationList[SubwayManager.Instance.currentStationIndex].Item1} 입니다".LogWarning();
-            $"목표 역은 {SubwayManager.Instance.stationList[SubwayManager.Instance.departStationIndex].Item1} 입니다".LogWarning();
+            anim.Play();
+            await UniTask.WaitUntil(() => anim.isPlaying == false);
+            Close();
         }
     }
 }

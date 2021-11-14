@@ -94,7 +94,7 @@ namespace Hotbar.Manager
 
                 var length = SoundManager.Instance.PlaySE(stationList[currentStationIndex + 1].Item3);
                 NPCContainer.Instance.npcList.Clear();
-                NPCContainer.Instance.SelectRandomNPC();
+                NPCContainer.Instance.SelectRandomNPC(3);
                 List<NPCPresenter> list = NPCContainer.Instance.npcList;
                 for(int i=0; i<list.Count; i++)
                 {
@@ -131,15 +131,17 @@ namespace Hotbar.Manager
             {
                 subwayRightDoor.SetBool("isopen", true);
             }
-            /*
+
             List<NPCPresenter> list = NPCContainer.Instance.npcList;
             for (int i = 0; i < list.Count; i++)
             {
                 "GoOut실행".Log();
                 _ = list[i].GoOut(isLeft);
             }
-            */
-            NPCContainer.Instance.TransfortNPC(isLeft, 0);
+
+            yield return new WaitForSeconds(3);
+
+            NPCContainer.Instance.TransfortNPC(isLeft, 8);
 
             yield return null;
         }
@@ -147,7 +149,7 @@ namespace Hotbar.Manager
         private IEnumerator Wait()
         {
             "[Wait]".LogWarning();
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(5);
         }
 
         private IEnumerator WaitForClose()
@@ -177,9 +179,9 @@ namespace Hotbar.Manager
 
             if(currentStationIndex > departStationIndex)
             {
+                currentStationIndex--;
                 "[게임 클리어 실패]".LogError();
                 isFinished = true;
-                PlayerContainer.Instance.player.tag = "Default";
                 UIManager.Instance.OpenView(UIManager.ViewType.Fail);
             }
             yield return null;

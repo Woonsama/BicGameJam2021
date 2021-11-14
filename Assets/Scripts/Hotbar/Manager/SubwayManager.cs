@@ -34,6 +34,8 @@ namespace Hotbar.Manager
         private bool isLeft = false;
         public bool isClose = true;
 
+        public bool isFinished = false;
+
         public void InitStation()
         {
             var maxDistance = 6;
@@ -49,7 +51,14 @@ namespace Hotbar.Manager
             StartCoroutine(StartSuywayFramework());
         }
 
-        public bool DepartCheck() => currentStationIndex >= departStationIndex;
+        public bool DepartCheck()
+        {
+            $"[Current Station Index : {currentStationIndex}]".LogError();
+            $"[Depart Station Index : {departStationIndex}]".LogError();
+
+
+            return currentStationIndex + 1 == departStationIndex;
+        }
 
         #region Private
 
@@ -57,6 +66,8 @@ namespace Hotbar.Manager
         {
             while (true)
             {
+                if (isFinished) break;
+
                 yield return StartMove();
                 yield return ShowScreen();
                 yield return OpenDoor();
@@ -128,7 +139,7 @@ namespace Hotbar.Manager
                 _ = list[i].GoOut(isLeft);
             }
             */
-            NPCContainer.Instance.TransfortNPC(isLeft, 8);
+            NPCContainer.Instance.TransfortNPC(isLeft, 0);
 
             yield return null;
         }
@@ -154,16 +165,21 @@ namespace Hotbar.Manager
             if (isLeft)
             {
                 subwayLeftDoor.SetBool("isopen", false);
+                yield return new WaitUntil(() => subwayLeftDoor.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !subwayLeftDoor.IsInTransition(0));
             }
             else
             {
                 subwayRightDoor.SetBool("isopen", false);
+                yield return new WaitUntil(() => subwayLeftDoor.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !subwayLeftDoor.IsInTransition(0));
             }
 
             currentStationIndex++;
+
             if(currentStationIndex > departStationIndex)
             {
                 "[게임 클리어 실패]".LogError();
+                isFinished = true;
+                PlayerContainer.Instance.player.tag = "Default";
                 UIManager.Instance.OpenView(UIManager.ViewType.Fail);
             }
             yield return null;

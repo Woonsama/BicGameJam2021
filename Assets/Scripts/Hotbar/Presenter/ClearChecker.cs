@@ -1,3 +1,4 @@
+using Hotbar.Container;
 using Hotbar.Manager;
 using Hotbar.UI;
 using System.Collections;
@@ -8,19 +9,22 @@ namespace Hotbar.Presenter
 {
     public class ClearChecker : MonoBehaviour
     {
-        public async void OnTriggerEnter(Collider other)
+        public void OnTriggerEnter(Collider other)
         {
             if(other.tag == "Player")
             {
+                SubwayManager.Instance.isFinished = true;
+
                 if(SubwayManager.Instance.DepartCheck() == true)
                 {
                     "[게임 클리어]".LogError();
-                    await UIManager.Instance.OpenView(UIManager.ViewType.Clear);
+                    UIManager.Instance.OpenView(UIManager.ViewType.Clear);
                 }
                 else
-                {
+                { 
                     "[게임 클리어 실패]".LogError();
-                    await UIManager.Instance.OpenView(UIManager.ViewType.Fail);
+                    UIManager.Instance.OpenView(UIManager.ViewType.Fail);
+
                 }
             }
         }

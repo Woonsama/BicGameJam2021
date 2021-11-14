@@ -1502,7 +1502,7 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: 1cae1d5ab586c844e97512914e1d68e4, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!1 &2107650156
@@ -1782,6 +1782,7 @@ MonoBehaviour:
   currentStationEnText: {fileID: 6830398580610761232}
   departStationKorText: {fileID: 2107650158}
   departStationEnText: {fileID: 3960089773514852024}
+  anim: {fileID: 2019452258}
 --- !u!1 &4220483728320631239
 GameObject:
   m_ObjectHideFlags: 0

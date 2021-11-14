@@ -8,5 +8,7 @@ public class EditorRuntimeInit : MonoBehaviour
     static void OnBeforeSceneLoadRuntimeMethod()
     {
         PlayerPrefs.SetInt("playCount", -1);
+
+        Screen.SetResolution(1920, 1080, true);
     }
 }

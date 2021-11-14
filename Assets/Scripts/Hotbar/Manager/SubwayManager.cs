@@ -131,16 +131,25 @@ namespace Hotbar.Manager
             {
                 subwayRightDoor.SetBool("isopen", true);
             }
-
-            List<NPCPresenter> list = NPCContainer.Instance.npcList;
-            for (int i = 0; i < list.Count; i++)
+            //내리는 로직
+            if(currentStationIndex +1 == departStationIndex)
             {
-                "GoOut실행".Log();
-                _ = list[i].GoOut(isLeft);
+
             }
+            else
+            {
+                List<NPCPresenter> list = NPCContainer.Instance.npcList;
+                for (int i = 0; i < list.Count; i++)
+                {
+                    "GoOut실행".Log();
+                    _ = list[i].GoOut(isLeft);
+                }
 
-            yield return new WaitForSeconds(3);
-
+                yield return new WaitForSeconds(3);
+            }
+            
+            //타는 로직
+            
             NPCContainer.Instance.TransfortNPC(isLeft, 8);
 
             yield return null;

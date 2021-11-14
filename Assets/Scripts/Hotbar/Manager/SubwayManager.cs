@@ -81,7 +81,7 @@ namespace Hotbar.Manager
         {
             "[Subway Start Move]".LogWarning();
             var moveTime = Random.Range(3, 5);
-
+            isLeft = stationList[currentStationIndex].Item4;
             yield return new WaitForSeconds(moveTime);
         }
 
@@ -117,7 +117,7 @@ namespace Hotbar.Manager
         {
             "[Start Door Animation]".LogWarning();
 
-            isLeft = stationList[currentStationIndex].Item4;
+            
             isClose = false;
 
             //LED
@@ -183,10 +183,9 @@ namespace Hotbar.Manager
                 subwayRightDoor.SetBool("isopen", false);
                 yield return new WaitUntil(() => subwayLeftDoor.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !subwayLeftDoor.IsInTransition(0));
             }
-
             currentStationIndex++;
-
-            if(currentStationIndex > departStationIndex)
+            
+            if (currentStationIndex > departStationIndex)
             {
                 currentStationIndex--;
                 "[게임 클리어 실패]".LogError();

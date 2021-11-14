@@ -16,36 +16,40 @@ namespace Hotbar.Presenter
 
         public void ChangeLED(bool isLeft)
         {
-            var isTrue = Random.Range(0, 100) <= 90;
+            var isTrue = Random.Range(0, 100) <= 75;
 
             if(isTrue)
             {
                 if(isLeft)
                 {
-                    frontLED.mainTexture = trueLeft;
+                    
                     behindLED.mainTexture = trueRight;
+                    frontLED.mainTexture = trueLeft;
                 }
                 else
                 {
-                    frontLED.mainTexture = trueRight;
+                    
                     behindLED.mainTexture = trueLeft;
+                    frontLED.mainTexture = trueRight;
                 }
             }
             else
             {
                 if(isLeft)
                 {
-                    frontLED.mainTexture = lieLeft;
+                    
                     behindLED.mainTexture = lieRight;
+                    frontLED.mainTexture = lieLeft;
                 }
                 else
                 {
-                    frontLED.mainTexture = lieRight;
+                    
                     behindLED.mainTexture = lieLeft;
+                    frontLED.mainTexture = lieRight;
                 }
             }
 
-            frontLED.SetFloat("floatspeed", Random.Range(0.7f, 2.0f));
+            frontLED.SetFloat("floatspeed", Random.Range(0.7f, 1.5f));
         }
     }
 }

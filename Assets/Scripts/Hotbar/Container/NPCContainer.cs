@@ -95,9 +95,9 @@ namespace Hotbar.Container
         {
            GameObject selected;
 
-           if(num + npcCreateCount >= MaxNpcCount)
+           if(num > npcCreateCount)
            {
-                num = MaxNpcCount - npcCreateCount;
+                num = npcCreateCount;
 
                 if (num <= 0)
                     return;
@@ -105,7 +105,7 @@ namespace Hotbar.Container
 
            for(int i=0; i<num; i++)
            {
-                int randomNum = Random.Range(0, MaxOutCount);
+                int randomNum = Random.Range(0, npcCreateCount);
                 selected = transform.GetChild(randomNum).gameObject;
                 npcList.Add(selected.GetComponent<NPCPresenter>());
            }

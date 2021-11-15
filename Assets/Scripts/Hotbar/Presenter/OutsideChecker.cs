@@ -34,7 +34,6 @@ public class OutsideChecker : MonoBehaviour
             if(SubwayManager.Instance.isClose || other.gameObject.GetComponent<NPCPresenter>().isInside)
             {
                 "Å¾½Â ½ÇÆÐÇØ¼­ »ç¶óÁü!".Log();
-                NPCContainer.Instance.npcCreateCount--;
                 Destroy(other.gameObject);
             }
         }

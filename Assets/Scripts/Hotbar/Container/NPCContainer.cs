@@ -42,7 +42,6 @@ namespace Hotbar.Container
                 script.transform.position = initialGenerateTransformList[i].position;
 
                 script.ID = ++npcID;
-                ++npcCreateCount;
 
                 _ = script.Behaviours();
                 _ = script.CheckInside();
@@ -70,7 +69,7 @@ namespace Hotbar.Container
                     var script = CreateNPC();
                     script.transform.position = leftDoorGenerateTransformList[i].position;
                     script.ID = ++npcID;
-                    ++npcCreateCount;
+                    
                     _ = script.ComeIn(isLeft);
                     _ = script.CheckInside();
                 }
@@ -82,7 +81,7 @@ namespace Hotbar.Container
                     var script = CreateNPC();
                     script.transform.position = rightDoorGenerateTransformList[i].position;
                     script.ID = ++npcID;
-                    ++npcCreateCount;
+                    
                     _ = script.ComeIn(isLeft);
                     _ = script.CheckInside();
                 }
@@ -136,7 +135,7 @@ namespace Hotbar.Container
         public void RemoveNPC(int id)
         {
             var target = npcList.Find(targetNPC => targetNPC.ID == id);
-            npcCreateCount--;
+            
             npcList.Remove(target);
             Destroy(target.gameObject);
         }

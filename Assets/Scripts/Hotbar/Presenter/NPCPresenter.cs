@@ -151,6 +151,16 @@ namespace Hotbar.Presenter
             }
         }
 
+        private void Start()
+        {
+            NPCContainer.Instance.npcCreateCount++;
+        }
+
+        private void OnDestroy()
+        {
+            --NPCContainer.Instance.npcCreateCount;
+        }
+
 
 
 

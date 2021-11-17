@@ -17,11 +17,11 @@ namespace Hotbar.UI.View
 
         public async Task StartTutorial()
         {
-            var playCount = PlayerPrefs.GetInt("playCount");
-            playCount.LogError();
+            //var playCount = PlayerPrefs.GetInt("playCount");
+            //playCount.LogError();
 
-            if (playCount == -1)
-            {
+            //if (playCount == -1)
+            //{
                 for (int i = 0; i < explainSpriteList.Count; i++)
                 {
                     explainImage.sprite = explainSpriteList[i];
@@ -33,11 +33,11 @@ namespace Hotbar.UI.View
                 PlayerPrefs.SetInt("playCount", PlayerPrefs.GetInt("playCount") + 1);
 
                 Close();
-            }
-            else
-            {
-                Close();
-            }
+            //}
+            //else
+            //{
+            //    Close();
+            //}
         }
     }
 }

@@ -30,7 +30,7 @@ namespace Hotbar.UI.View
                     await explainImage.DOFade(0, 1.0f).AsyncWaitForCompletion();
                 }
 
-                PlayerPrefs.SetInt("playCount", PlayerPrefs.GetInt("playCount") + 1);
+                //PlayerPrefs.SetInt("playCount", PlayerPrefs.GetInt("playCount") + 1);
 
                 Close();
             //}

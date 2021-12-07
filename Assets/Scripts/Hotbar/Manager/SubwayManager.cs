@@ -70,6 +70,17 @@ namespace Hotbar.Manager
 
                 yield return StartMove();
                 yield return ShowScreen();
+
+                //hotfix
+                if (currentStationIndex >= departStationIndex)
+                {
+                    currentStationIndex--;
+                    "[게임 클리어 실패]".LogError();
+                    isFinished = true;
+                    UIManager.Instance.OpenView(UIManager.ViewType.Fail);
+                }
+                if (isFinished) break;
+
                 yield return OpenDoor();
                 yield return Wait();
                 yield return CloseDoor();
@@ -174,15 +185,15 @@ namespace Hotbar.Manager
             if (isLeft)
             {
                 subwayLeftDoor.SetBool("isopen", false);
-                yield return new WaitUntil(() => subwayLeftDoor.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !subwayLeftDoor.IsInTransition(0));
+                yield return new WaitUntil(() => subwayLeftDoor.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !subwayLeftDoor.IsInTransition(0));
             }
             else
             {
                 subwayRightDoor.SetBool("isopen", false);
-                yield return new WaitUntil(() => subwayLeftDoor.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !subwayLeftDoor.IsInTransition(0));
+                yield return new WaitUntil(() => subwayLeftDoor.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !subwayLeftDoor.IsInTransition(0));
             }
             currentStationIndex++;
-            
+            /*
             if (currentStationIndex > departStationIndex)
             {
                 currentStationIndex--;
@@ -190,6 +201,7 @@ namespace Hotbar.Manager
                 isFinished = true;
                 UIManager.Instance.OpenView(UIManager.ViewType.Fail);
             }
+            */
             yield return null;
         }
 

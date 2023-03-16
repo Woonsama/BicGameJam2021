@@ -8,6 +8,12 @@ namespace Hotbar.Presenter
 {
     public class PlayerPresenter : MonoBehaviour
     {
+        public enum AnimState
+        {
+            Idle,
+            Walk,
+            Attack
+        }
         public Animator animator;
         public AudioSource source;
         public AudioClip forceClip;
@@ -20,66 +26,78 @@ namespace Hotbar.Presenter
         public float smooth = 10f;
         public float wallCheck_distance = 1.5f;
 
-        public bool isMoveAvailable = true;
-
         RaycastHit hit;
 
         public void Update()
         {
             Move();
-
-            //Force
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Instantiate(forcePrefab, transform.position + new Vector3(0f, 2f, 0f), transform.rotation);
-                animator.SetInteger("State", 2);
-                source.clip = forceClip;
-                source.Play();
-            }
+            Turn();
+            Attack();
         }
 
         public void Move()
         {
             //await Task.Delay(1);
-            //·çÇÁ°¡ ÃÊ´ç ¸îÇÁ·¹ÀÓÀÎÁö ¾ÈÁ¤ÇØÁ®ÀÖÀ½
-            //³ªÁß¿¡ ¾ó¸¶³ª ±â´Ù¸±Áö¸¦ Á¤ÇØÁà¾ßÇÔ
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            //ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ó¸¶³ï¿½ ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
+            if(Input.GetKey(KeyCode.Keypad4)|| Input.GetKey(KeyCode.Keypad5)|| Input.GetKey(KeyCode.Keypad6)|| Input.GetKey(KeyCode.Keypad8))
+            {
+                transform.position += new Vector3(transform.forward.x, 0f, transform.forward.z).normalized * speed * Time.deltaTime;
+                animator.SetBool("Walk", true);
+                animator.SetBool("Idle", false);
+            }
+            else if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+            {
+                transform.position += new Vector3(transform.forward.x, 0f, transform.forward.z).normalized * speed * Time.deltaTime;
+                animator.SetBool("Walk", true);
+                animator.SetBool("Idle", false);
+            }
+            else
+            {
+                animator.SetBool("Walk", false);
+                animator.SetBool("Idle", true);
+            }
+        }
 
-            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Keypad8))
+        private void Turn()
+        {
+            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Keypad8)) // ìœ„ ë°©í–¥ìœ¼ë¡œ íšŒì „
             {
                 transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(0f, 0f, 0f), Time.deltaTime * smooth);
             }
-            else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.Keypad5))
+            else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.Keypad5)) //ì•„ëž˜ ë°©í–¥ìœ¼ë¡œ íšŒì „
             {
                 transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(0f, 180f, 0f), Time.deltaTime * smooth);
             }
 
-            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Keypad4))
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Keypad4)) // ì™¼ìª½ ë°©í–¥ìœ¼ë¡œ íšŒì „
             {
                 transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(0f, -90f, 0f), Time.deltaTime * smooth);
             }
-            else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.Keypad6))
+            else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.Keypad6)) // ì˜¤ë¥¸ìª½ ë°©í–¥ìœ¼ë¡œ íšŒì „
             {
                 transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(0f, 90f, 0f), Time.deltaTime * smooth);
             }
+        }
 
-            if(isMoveAvailable && (Input.GetKey(KeyCode.Keypad4)|| Input.GetKey(KeyCode.Keypad5)|| Input.GetKey(KeyCode.Keypad6)|| Input.GetKey(KeyCode.Keypad8)))
+        private void Attack()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                transform.position += new Vector3(transform.forward.x, 0f, transform.forward.z).normalized * speed * Time.deltaTime;
-                animator.SetInteger("State", 1);
+                Instantiate(forcePrefab, transform.position + new Vector3(0f, 2f, 0f), transform.rotation);
+                StartCoroutine(AttackAnim());
+                source.clip = forceClip;
+                source.Play();
             }
-            else if (isMoveAvailable && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)))
-            {
-                transform.position += new Vector3(transform.forward.x, 0f, transform.forward.z).normalized * speed * Time.deltaTime;
-                animator.SetInteger("State", 1);
-            }
-            else
-            {
-                animator.SetInteger("State", 0);
-            }
+        }
 
-            isMoveAvailable = true;
-            
+
+        private IEnumerator AttackAnim()
+        {
+            animator.SetBool("Attack", true);
+            yield return new WaitForSeconds(0.3f);
+            animator.SetBool("Attack", false);
         }
     }
 }

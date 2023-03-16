@@ -1,8 +1,5 @@
 # 나 내려요!
 
-![Image](/GameScreenshot/GamePlay_1.png){: width="50%" height="50%"}
-![Image](/GameScreenshot/GamePlay_2.png){: width="50%" height="50%"}
-
 ### 사람이 많아도 너무 많은 지하철!
 ```
 매일 저녁 치열한 서바이벌을 해야 하는 지하철 경험을
@@ -14,21 +11,28 @@
 ```
 
 ### 플레이 소개
-![Image](/GameScreenshot/Tutorial_1.png){: width="60%" height="60%"}
-![Image](/GameScreenshot/Tutorial_2.png){: width="60%" height="60%"}
-![Image](/GameScreenshot/Tutorial_3.png){: width="60%" height="60%"}
-![Image](/GameScreenshot/Tutorial_4.png){: width="60%" height="60%"}
+<img src = "/GameScreenshot/Tutorial_1.png" width = "60%" height = "60%">  
+<img src = "/GameScreenshot/Tutorial_2.png" width = "60%" height = "60%"> 
+<img src = "/GameScreenshot/Tutorial_3.png" width = "60%" height = "60%">  
+<img src = "/GameScreenshot/Tutorial_4.png" width = "60%" height = "60%"> 
+
+
 
 ### 팀원 구성
 - 기획 : 김운성
 - 개발 : 김운성, 김윤성
 - 디자이너 : 김민욱
-
+  
+  
+  
 ### 개발 기간
 - 2021.11.12 ~ 2021.11.17
-
+  
+  
+  
 ### 성과
-![Image](/GameScreenshot/G-star_1.jpeg){: width="60%" height="60%"}
-- BIC Make Play Jam 2021 : Making Game, Playing Life ‘열정 게임인 수고했상’ 수상
-- G-Star 2021 게임 전시
+<img src = "/GameScreenshot/G-star_1.jpg" width = "60%" height = "60%">    
+  
+- BIC Make Play Jam 2021 : Making Game, Playing Life ‘열정 게임인 수고했상’ 수상  
+- G-Star 2021 게임 전시  
 

@@ -1,7 +1,7 @@
 # 나 내려요!
 
-![Image](/GameScreenshot/GamePlay_1.png) {: width="800" height="1024"}  
-![Image](/GameScreenshot/GamePlay_2.png) {: width="800" height="1024"}  
+![Image](/GameScreenshot/GamePlay_1.png){: width="50%" height="50%"}
+![Image](/GameScreenshot/GamePlay_2.png){: width="50%" height="50%"}
 
 ### 사람이 많아도 너무 많은 지하철!
 ```
@@ -14,10 +14,10 @@
 ```
 
 ### 플레이 소개
-![Image](/GameScreenshot/Tutorial_1.png)  
-![Image](/GameScreenshot/Tutorial_2.png)  
-![Image](/GameScreenshot/Tutorial_3.png)  
-![Image](/GameScreenshot/Tutorial_4.png)  
+![Image](/GameScreenshot/Tutorial_1.png){: width="60%" height="60%"}
+![Image](/GameScreenshot/Tutorial_2.png){: width="60%" height="60%"}
+![Image](/GameScreenshot/Tutorial_3.png){: width="60%" height="60%"}
+![Image](/GameScreenshot/Tutorial_4.png){: width="60%" height="60%"}
 
 ### 팀원 구성
 - 기획 : 김운성
@@ -28,7 +28,7 @@
 - 2021.11.12 ~ 2021.11.17
 
 ### 성과
-![Image](/GameScreenshot/G-star_1.jpeg)  
+![Image](/GameScreenshot/G-star_1.jpeg){: width="60%" height="60%"}
 - BIC Make Play Jam 2021 : Making Game, Playing Life ‘열정 게임인 수고했상’ 수상
 - G-Star 2021 게임 전시
 
